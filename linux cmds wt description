@@ -1,0 +1,58 @@
+uname   :displays the os
+uname -a:more detailed with prvt ip
+cat /etc/redhot-release
+arch    :to see the os version of os
+top     :how many users are logged in and cpu spacen total usage all will displays.
+top+1   :no.of cpu's we can see.
+alias   :to see the alias commands.
+which cmd name  :displays the path/description of the cmd
+ (which id,which alias:usr/bin/alias)
+ctrl+r  :we can see the previous command
+ctrl+l  :to clear the screen
+clear
+cd -    :we can go to the previous directiory
+cd ..   :we can get back to 2 directories from present directory.
+cd ~    :we can go to the ec2-user
+su - username :required password.
+sudo su - :switching to the root user.
+sudo su - ec2-user :switching to the ec2-user.
+nslookup dnsname :the website name is in DNS or not
+TRACEROUTE websitename(linux) :we can see where the packets dropped.
+TRACERT.EXE websitename(windows)
+ping websitename :it's keep on calling the website name.
+                  in aws ping not enabled,if we want we can enable by ICMP packets.
+nc -vz privateip port no :the port opened or not
+telnet ipaddress port no 
+whoami   :displays user name
+who am i :parent loggedin user
+who      :displays those who are logged in like ec2-user etc..
+w        :displays current loggedin user
+top(in this zombi should always zero)
+last
+ls -ltra :including all hidden files also
+ls a*
+ls z*   :to list the all files starting with specific letter      
+        :including file permissions also
+ls d*   :You want to get a directory listing of all the files beginning with the letter "d". You type
+ls -ld  :It will give the list of directories, without descending into subdirectories.
+vi filename :to create the file
+esc+i/insert :to write in the file.
+esc:set nu:giving the line numbers.
+esc:wc -l:displays total words count in the file 
+esc:1   :goes to the line 1
+esc:wq! :with save and quit
+esc:q!  :with out sva and quit
+dd :delete the line
+yy :copy the line
+x  :delete the charecter
+i  :insert
+p  :paste
+esc /keyword :to search the keyword where it is located n to go to the next word occurance press "n"
+echo "content" >> filename
+touch filename1,file name2,......
+touch -f test [1-20]
+rm filename :deletes the file wt permissions.
+remove -f test1,test2,......:forcefully deletes the file.
+chmod 644 filename :change the file permissions
+
+
