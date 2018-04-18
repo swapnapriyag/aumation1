@@ -18,9 +18,16 @@ sudo su - :switching to the root user.
 sudo su - ec2-user :switching to the ec2-user.
 nslookup dnsname :the website name is in DNS or not
 TRACEROUTE websitename(linux) :we can see where the packets dropped.
+TRACE-PATH  :equals to TRACEROUTE.
 TRACERT.EXE websitename(windows)
 ping websitename :it's keep on calling the website name.
                   in aws ping not enabled,if we want we can enable by ICMP packets.
+nmap  :it is port scan tool in remote server how many ports are opened.
+nmap ipaddress
+tcp dump  :it is also port scan tool(we can check in 1 server)
+22/tcp open ssh
+80/tcp open http
+443/tcp open https
 nc -vz privateip port no :the port opened or not
 telnet ipaddress port no 
 whoami   :displays user name
@@ -54,5 +61,25 @@ touch -f test [1-20]
 rm filename :deletes the file wt permissions.
 remove -f test1,test2,......:forcefully deletes the file.
 chmod 644 filename :change the file permissions
-
+chmod -R 777* :for directiory permissions.
+chown -R user:group filename/directory
+id username  :displays the user id
+chage -l username  :displays the user password expired or not
+/etc/passwd   :user information available here
+/etc/group    :group information
+/etc/shadow   :password information
+echo $PATH    :displays the path of the bin 
+echo $SHELL   :shell
+echo $PWD     :present path
+echo $USER    :which user we have logged in
+$HOME         :/home/ec2-user
+yum install packagename
+yum repolist
+yum remove packagename
+yum grouplist
+systemctl enable httpd
+systemctl start httpd
+systemctl stop httpd
+ps -ef | grep httpd
+netstat -anlp | grep ":80"
 
