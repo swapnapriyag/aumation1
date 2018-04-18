@@ -107,3 +107,28 @@ rpm
 source code
 binary(zip,tar...)
 useradd username  :creating the user
+userdel username  :deleting the user
+find . -name "*.tif" -size -160k -delete     ::deleting the files of lower size
+              Note the - before 160k. Just 160k means exactly 160 kilobytes. -160k means smaller than 160 kilobytes.
+              +160k means larger than 160 kilobytes.If you want to filter size in bytes (as in 160 bytes instead of 160 kilobytes)
+              then you have to write it like this: 160c. If you just write 160 it will be interpreted as 160*512 bytes.
+find -type f \( -name "*zip" -o -name "*tar" -o -name "*gz" \) -size +1M -delete  :deleting the file based on type and large size
+              the \( \) construct allows to group different filename patterns
+              by using -delete option, we can avoid piping and troubles with xargs See this, this and this
+              ./ or . is optional when using find command for current directory
+find -type f \( -name "*zip" -o -name "*tar" -o -name "*gz" \) -size +1M -exec rm {} +
+              where all the files filtered by find command is passed to rm command
+find <Path> <Conditions> | xargs cp -t <copy file path>
+              :copy the file from one path to another path by using find command
+find <path> <condition> -exec cp '{}' <copy path> \;
+find /path/to/search -name "*.doc" -exec cp {} /path/to/copy/to \;
+find /path/to/files* -mtime +5 -exec rm {} \;
+              deleting the files oldeer than 5 days
+              The first argument is the path to the files. This can be a path, a directory, or a wildcard as in the example above. 
+              I would recommend using the full path, and make sure that you run the command without the exec rm to make sure you are
+              getting the right results.
+              The second argument, -mtime, is used to specify the number of days old that the file is. If you enter +5, it will find 
+              files older than 5 days.
+              The third argument, -exec, allows you to pass in a command such as rm. The {} \; at the end is required to end the 
+              command.
+
