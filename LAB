@@ -1,0 +1,602 @@
+$ ssh -i bastionkey.pem ec2-user@18.219.202.156
+Last login: Tue Apr 17 11:25:27 2018 from 1.39.137.131
+[ec2-user@ip-172-31-31-157 ~]$ pwd
+/home/ec2-user
+[ec2-user@ip-172-31-31-157 ~]$ sudo su -
+Last login: Mon Apr 16 11:55:01 UTC 2018 on pts/0
+[root@ip-172-31-31-157 ~]# mkdir scripts
+[root@ip-172-31-31-157 ~]# ll
+total 16
+-rw-------. 1 root root 7752 Mar 23 17:52 anaconda-ks.cfg
+-rw-------. 1 root root 7080 Mar 23 17:52 original-ks.cfg
+drwxr-xr-x. 2 root root    6 Apr 18 10:48 scripts
+[root@ip-172-31-31-157 ~]# pwd
+/root
+[root@ip-172-31-31-157 ~]# cd scripts/
+[root@ip-172-31-31-157 scripts]# vi s1.sh
+[root@ip-172-31-31-157 scripts]# ll
+total 4
+-rw-r--r--. 1 root root 156 Apr 18 10:54 s1.sh
+[root@ip-172-31-31-157 scripts]# cat s1.sh
+#!/bin/bash
+#version :1.0
+#author :swapna
+echo "this is my first script"
+a=10
+echo "a value is =$a"
+echo "my shell name is =$SHELL"
+echo "today is :`date`
+
+[root@ip-172-31-31-157 scripts]# sh s1.sh
+this is my first script
+a value is =10
+my shell name is =/bin/bash
+s1.sh: line 8: unexpected EOF while looking for matching `"'
+s1.sh: line 10: syntax error: unexpected end of file
+[root@ip-172-31-31-157 scripts]# vi s1.sh
+[root@ip-172-31-31-157 scripts]# sh s1.sh
+this is my first script
+a value is =10
+my shell name is =/bin/bash
+today is :Wed Apr 18 10:57:02 UTC 2018
+[root@ip-172-31-31-157 scripts]# vi s2.sh
+[root@ip-172-31-31-157 scripts]# vi s2.sh
+[root@ip-172-31-31-157 scripts]# cat s2.sh
+#!/bin/bash
+echo "enter your name"
+read name
+echo "my name is =$name"
+[root@ip-172-31-31-157 scripts]# sh s2.sh
+enter your name
+swapna
+my name is =swapna
+[root@ip-172-31-31-157 scripts]# chmod 755 s1.sh
+[root@ip-172-31-31-157 scripts]# ll
+total 8
+-rwxr-xr-x. 1 root root 157 Apr 18 10:56 s1.sh
+-rw-r--r--. 1 root root  70 Apr 18 11:00 s2.sh
+[root@ip-172-31-31-157 scripts]# chown -R user:group s2.sh
+chown: invalid user: ‘user:group’
+[root@ip-172-31-31-157 scripts]# ./s1.sh
+this is my first script
+a value is =10
+my shell name is =/bin/bash
+today is :Wed Apr 18 11:09:25 UTC 2018
+[root@ip-172-31-31-157 scripts]# cd ..
+[root@ip-172-31-31-157 ~]# sudo su -
+Last login: Wed Apr 18 10:48:10 UTC 2018 on pts/0
+[root@ip-172-31-31-157 ~]# ./s1.sh
+-bash: ./s1.sh: No such file or directory
+[root@ip-172-31-31-157 ~]# cd scripts/
+[root@ip-172-31-31-157 scripts]# ./s1.sh
+this is my first script
+a value is =10
+my shell name is =/bin/bash
+today is :Wed Apr 18 11:10:42 UTC 2018
+[root@ip-172-31-31-157 scripts]# cd ..
+[root@ip-172-31-31-157 ~]# ./s1.sh /scripts
+-bash: ./s1.sh: No such file or directory
+[root@ip-172-31-31-157 ~]# ./s1.sh /root/scripts
+-bash: ./s1.sh: No such file or directory
+[root@ip-172-31-31-157 ~]# cd /opt/
+[root@ip-172-31-31-157 opt]# ./s1.sh /root/scripts/
+-bash: ./s1.sh: No such file or directory
+[root@ip-172-31-31-157 opt]# cd -
+/root
+[root@ip-172-31-31-157 ~]# pwd
+/root
+[root@ip-172-31-31-157 ~]# hostname
+ip-172-31-31-157.us-east-2.compute.internal
+[root@ip-172-31-31-157 ~]# sudo su - ec2-user
+Last login: Wed Apr 18 10:45:12 UTC 2018 from 1.39.178.13 on pts/0
+[ec2-user@ip-172-31-31-157 ~]$ echo "dis is the first file" > f1
+[ec2-user@ip-172-31-31-157 ~]$ ll
+total 4
+-rw-rw-r--. 1 ec2-user ec2-user 22 Apr 18 11:20 f1
+[ec2-user@ip-172-31-31-157 ~]$ rm f1
+[ec2-user@ip-172-31-31-157 ~]$
+[ec2-user@ip-172-31-31-157 ~]$ ll
+total 0
+[ec2-user@ip-172-31-31-157 ~]$ touch -f test [1-10]
+[ec2-user@ip-172-31-31-157 ~]$ ll
+total 0
+-rw-rw-r--. 1 ec2-user ec2-user 0 Apr 18 11:20 [1-10]
+-rw-rw-r--. 1 ec2-user ec2-user 0 Apr 18 11:20 test
+[ec2-user@ip-172-31-31-157 ~]$ rm test3
+rm: cannot remove ‘test3’: No such file or directory
+[ec2-user@ip-172-31-31-157 ~]$ touch -f f1 f2 f3 f4
+[ec2-user@ip-172-31-31-157 ~]$ ll
+total 0
+-rw-rw-r--. 1 ec2-user ec2-user 0 Apr 18 11:20 [1-10]
+-rw-rw-r--. 1 ec2-user ec2-user 0 Apr 18 11:22 f1
+-rw-rw-r--. 1 ec2-user ec2-user 0 Apr 18 11:22 f2
+-rw-rw-r--. 1 ec2-user ec2-user 0 Apr 18 11:22 f3
+-rw-rw-r--. 1 ec2-user ec2-user 0 Apr 18 11:22 f4
+-rw-rw-r--. 1 ec2-user ec2-user 0 Apr 18 11:20 test
+[ec2-user@ip-172-31-31-157 ~]$ rm f3 f1
+[ec2-user@ip-172-31-31-157 ~]$ ll
+total 0
+-rw-rw-r--. 1 ec2-user ec2-user 0 Apr 18 11:20 [1-10]
+-rw-rw-r--. 1 ec2-user ec2-user 0 Apr 18 11:22 f2
+-rw-rw-r--. 1 ec2-user ec2-user 0 Apr 18 11:22 f4
+-rw-rw-r--. 1 ec2-user ec2-user 0 Apr 18 11:20 test
+[ec2-user@ip-172-31-31-157 ~]$ rm test
+[ec2-user@ip-172-31-31-157 ~]$ ll
+total 0
+-rw-rw-r--. 1 ec2-user ec2-user 0 Apr 18 11:20 [1-10]
+-rw-rw-r--. 1 ec2-user ec2-user 0 Apr 18 11:22 f2
+-rw-rw-r--. 1 ec2-user ec2-user 0 Apr 18 11:22 f4
+[ec2-user@ip-172-31-31-157 ~]$ touch -f test[1-10]
+[ec2-user@ip-172-31-31-157 ~]$ ll
+total 0
+-rw-rw-r--. 1 ec2-user ec2-user 0 Apr 18 11:20 [1-10]
+-rw-rw-r--. 1 ec2-user ec2-user 0 Apr 18 11:22 f2
+-rw-rw-r--. 1 ec2-user ec2-user 0 Apr 18 11:22 f4
+-rw-rw-r--. 1 ec2-user ec2-user 0 Apr 18 11:23 test[1-10]
+[ec2-user@ip-172-31-31-157 ~]$ rm test3
+rm: cannot remove ‘test3’: No such file or directory
+[ec2-user@ip-172-31-31-157 ~]$ rm -f test4*
+[ec2-user@ip-172-31-31-157 ~]$ ll
+total 0
+-rw-rw-r--. 1 ec2-user ec2-user 0 Apr 18 11:20 [1-10]
+-rw-rw-r--. 1 ec2-user ec2-user 0 Apr 18 11:22 f2
+-rw-rw-r--. 1 ec2-user ec2-user 0 Apr 18 11:22 f4
+-rw-rw-r--. 1 ec2-user ec2-user 0 Apr 18 11:23 test[1-10]
+[ec2-user@ip-172-31-31-157 ~]$ rm -f test*
+[ec2-user@ip-172-31-31-157 ~]$ ll
+total 0
+-rw-rw-r--. 1 ec2-user ec2-user 0 Apr 18 11:20 [1-10]
+-rw-rw-r--. 1 ec2-user ec2-user 0 Apr 18 11:22 f2
+-rw-rw-r--. 1 ec2-user ec2-user 0 Apr 18 11:22 f4
+[ec2-user@ip-172-31-31-157 ~]$ ls - ltr test 2
+ls: cannot access -: No such file or directory
+ls: cannot access ltr: No such file or directory
+ls: cannot access test: No such file or directory
+ls: cannot access 2: No such file or directory
+[ec2-user@ip-172-31-31-157 ~]$ ls - ltr test 2*
+ls: cannot access -: No such file or directory
+ls: cannot access ltr: No such file or directory
+ls: cannot access test: No such file or directory
+ls: cannot access 2*: No such file or directory
+[ec2-user@ip-172-31-31-157 ~]$ rm -f *
+[ec2-user@ip-172-31-31-157 ~]$ ll
+total 0
+[ec2-user@ip-172-31-31-157 ~]$ mkdir test
+[ec2-user@ip-172-31-31-157 ~]$ touch f1
+[ec2-user@ip-172-31-31-157 ~]$ rm f1
+[ec2-user@ip-172-31-31-157 ~]$ ll
+total 0
+drwxrwxr-x. 2 ec2-user ec2-user 6 Apr 18 11:28 test
+[ec2-user@ip-172-31-31-157 ~]$ cd test
+[ec2-user@ip-172-31-31-157 test]$ touch f1
+[ec2-user@ip-172-31-31-157 test]$ ll
+total 0
+-rw-rw-r--. 1 ec2-user ec2-user 0 Apr 18 11:28 f1
+[ec2-user@ip-172-31-31-157 test]$ cd..
+-bash: cd..: command not found
+[ec2-user@ip-172-31-31-157 test]$ pwd
+/home/ec2-user/test
+[ec2-user@ip-172-31-31-157 test]$ cd ..
+[ec2-user@ip-172-31-31-157 ~]$ rm -rf test
+[ec2-user@ip-172-31-31-157 ~]$ ll
+total 0
+[ec2-user@ip-172-31-31-157 ~]$ pwd
+/home/ec2-user
+[ec2-user@ip-172-31-31-157 ~]$ id username
+id: username: no such user
+[ec2-user@ip-172-31-31-157 ~]$ sudo su -
+Last login: Wed Apr 18 11:10:08 UTC 2018 on pts/0
+[root@ip-172-31-31-157 ~]# id username
+id: username: no such user
+[root@ip-172-31-31-157 ~]# id
+uid=0(root) gid=0(root) groups=0(root) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+[root@ip-172-31-31-157 ~]# sudo su - ec2-user
+Last login: Wed Apr 18 11:19:34 UTC 2018 on pts/0
+[ec2-user@ip-172-31-31-157 ~]$ id
+uid=1000(ec2-user) gid=1000(ec2-user) groups=1000(ec2-user),4(adm),10(wheel),190(systemd-journal) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+[ec2-user@ip-172-31-31-157 ~]$ useradd user
+-bash: /usr/sbin/useradd: Permission denied
+[ec2-user@ip-172-31-31-157 ~]$ sudo useradd user
+[ec2-user@ip-172-31-31-157 ~]$ id user
+uid=1001(user) gid=1001(user) groups=1001(user)
+[ec2-user@ip-172-31-31-157 ~]$ cd ..
+[ec2-user@ip-172-31-31-157 home]$ cd ..
+[ec2-user@ip-172-31-31-157 /]$ pwd
+/
+[ec2-user@ip-172-31-31-157 /]$ sudo su -
+Last login: Wed Apr 18 11:29:35 UTC 2018 on pts/0
+[root@ip-172-31-31-157 ~]# useradd user
+useradd: user 'user' already exists
+[root@ip-172-31-31-157 ~]# useradd user1
+[root@ip-172-31-31-157 ~]# id user1
+uid=1002(user1) gid=1002(user1) groups=1002(user1)
+[root@ip-172-31-31-157 ~]# /etc/passwd
+-bash: /etc/passwd: Permission denied
+[root@ip-172-31-31-157 ~]# cd /etc/passwd
+-bash: cd: /etc/passwd: Not a directory
+[root@ip-172-31-31-157 ~]# cd /etc
+[root@ip-172-31-31-157 etc]# ll
+total 1084
+-rw-r--r--.  1 root root       16 Mar 23 17:50 adjtime
+-rw-r--r--.  1 root root     1518 Jun  7  2013 aliases
+-rw-r--r--.  1 root root    12288 Apr 16 10:00 aliases.db
+drwxr-xr-x.  2 root root      236 Mar 23 17:45 alternatives
+-rw-------.  1 root root      541 Oct 16  2017 anacrontab
+drwxr-x---.  3 root root       43 Mar 23 17:45 audisp
+drwxr-x---.  3 root root       83 Apr 16 10:00 audit
+drwxr-xr-x.  2 root root      154 Mar 23 17:45 bash_completion.d
+-rw-r--r--.  1 root root     2853 Nov 22 14:53 bashrc
+drwxr-xr-x.  2 root root        6 Feb 20 15:47 binfmt.d
+drwxr-xr-x.  2 root root        6 Jun  6  2017 chkconfig.d
+-rw-r--r--.  1 root root     1100 Dec  5 15:27 chrony.conf
+-rw-r-----.  1 root chrony    481 Sep 15  2017 chrony.keys
+drwxr-xr-x.  4 root root       59 Mar 23 17:51 cloud
+drwxr-xr-x.  2 root root       21 Mar 23 17:42 cron.d
+drwxr-xr-x.  2 root root       55 Mar 23 17:45 cron.daily
+-rw-------.  1 root root        0 Oct 16  2017 cron.deny
+drwxr-xr-x.  2 root root       22 Dec 27  2013 cron.hourly
+drwxr-xr-x.  2 root root        6 Dec 27  2013 cron.monthly
+-rw-r--r--.  1 root root      451 Dec 27  2013 crontab
+drwxr-xr-x.  2 root root        6 Dec 27  2013 cron.weekly
+-rw-------.  1 root root        0 Mar 23 17:41 crypttab
+-rw-r--r--.  1 root root     1620 Nov 22 14:53 csh.cshrc
+-rw-r--r--.  1 root root      866 Nov 22 14:53 csh.login
+drwxr-xr-x.  4 root root       78 Mar 23 17:42 dbus-1
+drwxr-xr-x.  2 root root       44 Mar 23 17:50 default
+drwxr-xr-x.  2 root root       23 Mar 23 17:42 depmod.d
+drwxr-x---.  4 root root       53 Mar 23 17:43 dhcp
+-rw-r--r--.  1 root root     5090 Dec  4 11:44 DIR_COLORS
+-rw-r--r--.  1 root root     5725 Dec  4 11:44 DIR_COLORS.256color
+-rw-r--r--.  1 root root     4669 Dec  4 11:44 DIR_COLORS.lightbgcolor
+-rw-r--r--.  1 root root     1285 Feb 19 15:21 dracut.conf
+drwxr-xr-x.  2 root root       25 Mar 23 17:52 dracut.conf.d
+-rw-r--r--.  1 root root      112 Nov 21 15:15 e2fsck.conf
+-rw-r--r--.  1 root root        0 Nov 22 14:53 environment
+-rw-r--r--.  1 root root        0 Jun  7  2013 exports
+lrwxrwxrwx.  1 root root       56 Apr 16 11:08 favicon.png -> /usr/share/icons/hicolor/16x16/apps/fedora-logo-icon.png
+-rw-r--r--.  1 root root       70 Nov 22 14:53 filesystems
+drwxr-x---.  3 root root       19 Mar 23 17:51 firewalld
+-rw-r--r--.  1 root root      313 Mar 23 17:41 fstab
+drwxr-xr-x.  2 root root        6 Feb 28  2017 gcrypt
+-rw-r--r--.  1 root root      842 Jun 29  2016 GeoIP.conf
+-rw-r--r--.  1 root root      858 Jun 29  2016 GeoIP.conf.default
+drwxr-xr-x.  2 root root        6 Mar 24  2016 gnupg
+-rw-r--r--.  1 root root       94 Mar 24  2017 GREP_COLORS
+drwxr-xr-x.  4 root root       40 Mar 23 17:41 groff
+-rw-r--r--.  1 root root      543 Apr 18 11:33 group
+-rw-r--r--.  1 root root      529 Apr 18 11:31 group-
+lrwxrwxrwx.  1 root root       22 Mar 23 17:43 grub2.cfg -> ../boot/grub2/grub.cfg
+lrwxrwxrwx.  1 root root       20 Mar 23 17:51 grub.conf -> /boot/grub/grub.conf
+drwx------.  2 root root      182 Mar 23 17:46 grub.d
+----------.  1 root root      433 Apr 18 11:33 gshadow
+----------.  1 root root      423 Apr 18 11:31 gshadow-
+drwxr-xr-x.  3 root root       20 Mar 23 17:42 gss
+-rw-r--r--.  1 root root        9 Jun  7  2013 host.conf
+-rw-r--r--.  1 root root       44 Apr 16 10:00 hostname
+-rw-r--r--.  1 root root      159 Mar 23 17:51 hosts
+-rw-r--r--.  1 root root      370 Jun  7  2013 hosts.allow
+-rw-r--r--.  1 root root      460 Jun  7  2013 hosts.deny
+drwxr-xr-x.  5 root root       92 Apr 16 11:08 httpd
+lrwxrwxrwx.  1 root root       11 Mar 23 17:41 init.d -> rc.d/init.d
+-rw-r--r--.  1 root root      511 Jan  2 16:45 inittab
+-rw-r--r--.  1 root root      942 Jun  7  2013 inputrc
+drwxr-xr-x.  2 root root      159 Mar 23 17:41 iproute2
+-rw-r--r--.  1 root root       23 Feb 28 18:42 issue
+-rw-r--r--.  1 root root       22 Feb 28 18:42 issue.net
+-rw-r--r--.  1 root root     7265 Mar 23 17:43 kdump.conf
+drwxr-xr-x.  3 root root       24 Mar 23 17:45 kernel
+-rw-r--r--.  1 root root      590 Nov 28 19:24 krb5.conf
+drwxr-xr-x.  2 root root        6 Nov 28 19:27 krb5.conf.d
+-rw-r--r--.  1 root root    18159 Apr 16 11:08 ld.so.cache
+-rw-r--r--.  1 root root       28 Feb 27  2013 ld.so.conf
+drwxr-xr-x.  2 root root       74 Mar 23 17:45 ld.so.conf.d
+-rw-r-----.  1 root root      191 Oct 12  2017 libaudit.conf
+drwxr-xr-x.  2 root root       35 Mar 23 17:41 libnl
+-rw-r--r--.  1 root root     2391 Oct 12  2013 libuser.conf
+-rw-r--r--.  1 root root       17 Apr 16 10:00 locale.conf
+lrwxrwxrwx.  1 root root       25 Mar 23 17:50 localtime -> ../usr/share/zoneinfo/UTC
+-rw-r--r--.  1 root root     2028 Jun 28  2016 login.defs
+-rw-r--r--.  1 root root      662 Jul 31  2013 logrotate.conf
+drwxr-xr-x.  2 root root      123 Apr 16 11:08 logrotate.d
+-r--r--r--.  1 root root       33 Apr 16 10:00 machine-id
+-rw-r--r--.  1 root root      111 Jun 27  2016 magic
+-rw-r--r--.  1 root root      272 May 14  2013 mailcap
+-rw-r--r--.  1 root root     5122 Feb 13 02:05 makedumpfile.conf.sample
+-rw-r--r--.  1 root root     5171 Mar 17  2014 man_db.conf
+-rw-r--r--.  1 root root    51787 May 14  2013 mime.types
+-rw-r--r--.  1 root root      936 Nov 21 15:17 mke2fs.conf
+drwxr-xr-x.  2 root root       51 Mar 23 17:51 modprobe.d
+drwxr-xr-x.  2 root root        6 Feb 20 15:47 modules-load.d
+-rw-r--r--.  1 root root        0 Jun  7  2013 motd
+lrwxrwxrwx.  1 root root       17 Mar 23 17:41 mtab -> /proc/self/mounts
+-rw-r--r--.  1 root root      570 Jun  8  2017 my.cnf
+drwxr-xr-x.  2 root root       31 Mar 23 17:42 my.cnf.d
+drwxr-xr-x.  7 root root      134 Feb 28 12:25 NetworkManager
+-rw-r--r--.  1 root root       58 Jan  2 16:45 networks
+-rw-r--r--.  1 root root     1746 Mar 23 17:42 nsswitch.conf
+-rw-r--r--.  1 root root     1735 Feb  5 15:08 nsswitch.conf.bak
+drwxr-xr-x.  3 root root       36 Mar 23 17:42 openldap
+drwxr-xr-x.  2 root root        6 Dec 14 17:23 opt
+-rw-r--r--.  1 root root      532 Feb 28 18:42 os-release
+drwxr-xr-x.  2 root root     4096 Mar 23 17:50 pam.d
+-rw-r--r--.  1 root root     1036 Apr 18 11:33 passwd
+-rw-r--r--.  1 root root      995 Apr 18 11:31 passwd-
+drwxr-xr-x.  3 root root       21 Mar 23 17:41 pkcs11
+drwxr-xr-x. 15 root root      201 Apr 16 10:07 pki
+drwxr-xr-x.  5 root root       52 Mar 23 17:41 pm
+drwxr-xr-x.  5 root root       72 Mar 23 17:42 polkit-1
+drwxr-xr-x.  2 root root        6 Jan 26  2014 popt.d
+drwxr-xr-x.  2 root root      154 Mar 23 17:45 postfix
+drwxr-xr-x.  3 root root      123 Mar 23 17:42 ppp
+drwxr-xr-x.  2 root root       78 Mar 23 17:42 prelink.conf.d
+-rw-r--r--.  1 root root      233 Jun  7  2013 printcap
+-rw-r--r--.  1 root root     1819 Nov 22 14:53 profile
+drwxr-xr-x.  2 root root      251 Mar 23 17:42 profile.d
+-rw-r--r--.  1 root root     6545 Jun  7  2013 protocols
+drwxr-xr-x.  2 root root       35 Mar 23 17:42 python
+drwxr-xr-x.  3 root root       50 Mar 23 17:45 qemu-ga
+lrwxrwxrwx.  1 root root       10 Mar 23 17:41 rc0.d -> rc.d/rc0.d
+lrwxrwxrwx.  1 root root       10 Mar 23 17:41 rc1.d -> rc.d/rc1.d
+lrwxrwxrwx.  1 root root       10 Mar 23 17:41 rc2.d -> rc.d/rc2.d
+lrwxrwxrwx.  1 root root       10 Mar 23 17:41 rc3.d -> rc.d/rc3.d
+lrwxrwxrwx.  1 root root       10 Mar 23 17:41 rc4.d -> rc.d/rc4.d
+lrwxrwxrwx.  1 root root       10 Mar 23 17:41 rc5.d -> rc.d/rc5.d
+lrwxrwxrwx.  1 root root       10 Mar 23 17:41 rc6.d -> rc.d/rc6.d
+drwxr-xr-x. 10 root root      127 Mar 23 17:42 rc.d
+lrwxrwxrwx.  1 root root       13 Mar 23 17:42 rc.local -> rc.d/rc.local
+-rw-r--r--.  1 root root       52 Feb 28 18:42 redhat-release
+-rw-r--r--.  1 root root       86 Apr 17 10:05 resolv.conf
+drwxr-xr-x.  5 root root       86 Mar 23 17:43 rhsm
+-rw-r--r--.  1 root root     1634 Dec 25  2012 rpc
+drwxr-xr-x.  2 root root       47 Mar 23 17:43 rpm
+-rw-r--r--.  1 root root      458 Oct 18 11:15 rsyncd.conf
+-rw-r--r--.  1 root root     3232 Nov  9 14:06 rsyslog.conf
+drwxr-xr-x.  2 root root       50 Mar 23 17:45 rsyslog.d
+-rw-r--r--.  1 root root      966 Jan  2 16:45 rwtab
+drwxr-xr-x.  2 root root       23 Jan  2 16:45 rwtab.d
+drwxr-xr-x.  2 root root       24 Mar 23 17:45 sasl2
+-rw-------.  1 root root      221 Nov 22 14:53 securetty
+drwxr-xr-x.  6 root root     4096 Mar 23 17:42 security
+drwxr-xr-x.  5 root root       81 Mar 23 17:43 selinux
+-rw-r--r--.  1 root root   670293 Jun  7  2013 services
+-rw-r--r--.  1 root root      216 Dec 11 11:27 sestatus.conf
+----------.  1 root root      594 Apr 18 11:33 shadow
+----------.  1 root root      566 Apr 18 11:31 shadow-
+-rw-r--r--.  1 root root       76 Jun  7  2013 shells
+drwxr-xr-x.  2 root root       62 Mar 23 17:41 skel
+drwxr-xr-x.  2 root root      225 Apr 16 10:00 ssh
+drwxr-xr-x.  2 root root       19 Mar 23 17:42 ssl
+-rw-r--r--.  1 root root      212 Jan  2 16:45 statetab
+drwxr-xr-x.  2 root root        6 Jan  2 16:45 statetab.d
+-rw-r--r--.  1 root root        0 Nov 22 14:53 subgid
+-rw-r--r--.  1 root root        0 Nov 22 14:53 subuid
+-rw-r-----.  1 root root     1786 Nov 30 15:55 sudo.conf
+-r--r-----.  1 root root     3971 Mar 23 17:51 sudoers
+drwxr-x---.  2 root root       33 Apr 16 10:00 sudoers.d
+-rw-r-----.  1 root root     3181 Nov 30 15:55 sudo-ldap.conf
+drwxr-xr-x.  7 root root     4096 Apr 16 11:08 sysconfig
+-rw-r--r--.  1 root root      449 Jan  2 16:45 sysctl.conf
+drwxr-xr-x.  2 root root       28 Mar 23 17:42 sysctl.d
+drwxr-xr-x.  4 root root      151 Mar 23 17:51 systemd
+lrwxrwxrwx.  1 root root       14 Mar 23 17:41 system-release -> redhat-release
+-rw-r--r--.  1 root root       45 Feb 28 18:42 system-release-cpe
+drwxr-xr-x.  2 root root        6 Aug 15  2017 terminfo
+drwxr-xr-x.  2 root root        6 Feb 20 15:47 tmpfiles.d
+drwxr-xr-x.  3 root root      109 Mar 23 17:45 tuned
+drwxr-xr-x.  3 root root       54 Apr 16 10:00 udev
+-rw-r--r--.  1 root root       37 Mar 23 17:50 vconsole.conf
+-rw-r--r--.  1 root root     1982 Sep  6  2017 virc
+drwxr-xr-x.  2 root root       33 Mar 23 17:43 wpa_supplicant
+drwxr-xr-x.  5 root root       57 Mar 23 17:42 X11
+drwxr-xr-x.  4 root root       38 Mar 23 17:42 xdg
+drwxr-xr-x.  2 root root        6 Dec 14 17:23 xinetd.d
+drwxr-xr-x.  6 root root      100 Mar 23 17:43 yum
+-rw-r--r--.  1 root root      813 Nov 26 22:21 yum.conf
+drwxr-xr-x.  2 root root      100 Apr 17 10:05 yum.repos.d
+[root@ip-172-31-31-157 etc]# ls p*
+passwd  passwd-  printcap  profile  protocols
+
+pam.d:
+chfn         crond                login   password-auth     postlogin     rhn_register  smartcard-auth     smtp.postfix  subscription-manager  su-l            systemd-user
+chsh         fingerprint-auth     other   password-auth-ac  postlogin-ac  runuser       smartcard-auth-ac  sshd          sudo                  system-auth     vlock
+config-util  fingerprint-auth-ac  passwd  polkit-1          remote        runuser-l     smtp               su            sudo-i                system-auth-ac
+
+pkcs11:
+modules
+
+pki:
+CA  ca-trust  consumer  entitlement  java  nssdb  nss-legacy  product  product-default  rhui  rpm-gpg  rsyslog  tls
+
+pm:
+config.d  power.d  sleep.d
+
+polkit-1:
+localauthority  localauthority.conf.d  rules.d
+
+popt.d:
+
+postfix:
+access  canonical  generic  header_checks  main.cf  master.cf  relocated  transport  virtual
+
+ppp:
+ip-down  ip-down.ipv6to4  ip-up  ip-up.ipv6to4  ipv6-down  ipv6-up  peers
+
+prelink.conf.d:
+fipscheck.conf  grub2.conf  nss-softokn-prelink.conf
+
+profile.d:
+256term.csh  256term.sh  colorgrep.csh  colorgrep.sh  colorls.csh  colorls.sh  csh.local  lang.csh  lang.sh  less.csh  less.sh  sh.local  which2.csh  which2.sh
+
+python:
+cert-verification.cfg
+[root@ip-172-31-31-157 etc]#
+[root@ip-172-31-31-157 etc]#
+[root@ip-172-31-31-157 etc]# cd ..
+[root@ip-172-31-31-157 /]# sudo su -
+Last login: Wed Apr 18 11:33:26 UTC 2018 on pts/0
+[root@ip-172-31-31-157 ~]# sudo su - ec2-user
+Last login: Wed Apr 18 11:30:09 UTC 2018 on pts/0
+[ec2-user@ip-172-31-31-157 ~]$ vi demo
+[ec2-user@ip-172-31-31-157 ~]$ cat demo
+hi
+this is the first
+demo file
+[ec2-user@ip-172-31-31-157 ~]$ mv demo /opt
+mv: cannot move ‘demo’ to ‘/opt/demo’: Permission denied
+[ec2-user@ip-172-31-31-157 ~]$ cp demo /opt
+cp: cannot create regular file ‘/opt/demo’: Permission denied
+[ec2-user@ip-172-31-31-157 ~]$ sudo su -
+Last login: Wed Apr 18 11:37:35 UTC 2018 on pts/0
+[root@ip-172-31-31-157 ~]# cd -
+-bash: cd: OLDPWD not set
+[root@ip-172-31-31-157 ~]# echo " this is the demo file" > demo
+[root@ip-172-31-31-157 ~]# ll
+total 20
+-rw-------. 1 root root 7752 Mar 23 17:52 anaconda-ks.cfg
+-rw-r--r--. 1 root root   23 Apr 18 11:41 demo
+-rw-------. 1 root root 7080 Mar 23 17:52 original-ks.cfg
+drwxr-xr-x. 2 root root   32 Apr 18 11:00 scripts
+[root@ip-172-31-31-157 ~]# mv demo demofile
+[root@ip-172-31-31-157 ~]# ll
+total 20
+-rw-------. 1 root root 7752 Mar 23 17:52 anaconda-ks.cfg
+-rw-r--r--. 1 root root   23 Apr 18 11:41 demofile
+-rw-------. 1 root root 7080 Mar 23 17:52 original-ks.cfg
+drwxr-xr-x. 2 root root   32 Apr 18 11:00 scripts
+[root@ip-172-31-31-157 ~]# mv demofile /tmp
+[root@ip-172-31-31-157 ~]# cat /opt/demofile
+cat: /opt/demofile: No such file or directory
+[root@ip-172-31-31-157 ~]# cd /tmp
+[root@ip-172-31-31-157 tmp]# ll
+total 4
+-rw-r--r--. 1 root root 23 Apr 18 11:41 demofile
+drwx------. 3 root root 17 Apr 17 10:05 systemd-private-2af7ffeb5a414c69b2db95d51db0bb3c-chronyd.service-2ID4UQ
+[root@ip-172-31-31-157 tmp]# cat demofile
+ this is the demo file
+[root@ip-172-31-31-157 tmp]# mv demofile /opt
+[root@ip-172-31-31-157 tmp]# cd ..
+[root@ip-172-31-31-157 /]# cd /opt
+[root@ip-172-31-31-157 opt]# ll
+total 4
+-rw-r--r--. 1 root root 23 Apr 18 11:41 demofile
+[root@ip-172-31-31-157 opt]# cp demofile /tmp/
+[root@ip-172-31-31-157 opt]# cat /tmp/demofile
+ this is the demo file
+[root@ip-172-31-31-157 opt]# cd ..
+[root@ip-172-31-31-157 /]# rm -rf /opt/demofile
+[root@ip-172-31-31-157 /]# cd /opt
+[root@ip-172-31-31-157 opt]# ll
+total 0
+[root@ip-172-31-31-157 opt]# cd /root
+[root@ip-172-31-31-157 ~]# ll
+total 16
+-rw-------. 1 root root 7752 Mar 23 17:52 anaconda-ks.cfg
+-rw-------. 1 root root 7080 Mar 23 17:52 original-ks.cfg
+drwxr-xr-x. 2 root root   32 Apr 18 11:00 scripts
+[root@ip-172-31-31-157 ~]# mkdir -p /scripts/jenkins/
+[root@ip-172-31-31-157 ~]# cd /scripts/jenkins/
+[root@ip-172-31-31-157 jenkins]# ll
+total 0
+[root@ip-172-31-31-157 jenkins]# echo "this is the scripting file
+> in jenkins dir" > demo
+[root@ip-172-31-31-157 jenkins]# ll
+total 4
+-rw-r--r--. 1 root root 43 Apr 18 11:49 demo
+[root@ip-172-31-31-157 jenkins]# ls -lRt
+.:
+total 4
+-rw-r--r--. 1 root root 43 Apr 18 11:49 demo
+[root@ip-172-31-31-157 jenkins]# cd /scripts
+[root@ip-172-31-31-157 scripts]# cd /root
+[root@ip-172-31-31-157 ~]# pwd
+/root
+[root@ip-172-31-31-157 ~]# ll
+total 16
+-rw-------. 1 root root 7752 Mar 23 17:52 anaconda-ks.cfg
+-rw-------. 1 root root 7080 Mar 23 17:52 original-ks.cfg
+drwxr-xr-x. 2 root root   32 Apr 18 11:00 scripts
+[root@ip-172-31-31-157 ~]# ls -lRt
+.:
+total 16
+drwxr-xr-x. 2 root root   32 Apr 18 11:00 scripts
+-rw-------. 1 root root 7752 Mar 23 17:52 anaconda-ks.cfg
+-rw-------. 1 root root 7080 Mar 23 17:52 original-ks.cfg
+
+./scripts:
+total 8
+-rw-r--r--. 1 root root  70 Apr 18 11:00 s2.sh
+-rwxr-xr-x. 1 root root 157 Apr 18 10:56 s1.sh
+[root@ip-172-31-31-157 ~]# ls -lRta
+.:
+total 40
+dr-xr-xr-x. 19 root root  251 Apr 18 11:48 ..
+dr-xr-x---.  5 root root  197 Apr 18 11:43 .
+drwxr-xr-x.  2 root root   32 Apr 18 11:00 scripts
+-rw-------.  1 root root   36 Apr 16 12:15 .bash_history
+drwxr-----.  3 root root   19 Apr 16 11:08 .pki
+drwx------.  2 root root   29 Apr 16 10:00 .ssh
+-rw-------.  1 root root 7752 Mar 23 17:52 anaconda-ks.cfg
+-rw-------.  1 root root 7080 Mar 23 17:52 original-ks.cfg
+-rw-r--r--.  1 root root   18 Dec 29  2013 .bash_logout
+-rw-r--r--.  1 root root  176 Dec 29  2013 .bash_profile
+-rw-r--r--.  1 root root  176 Dec 29  2013 .bashrc
+-rw-r--r--.  1 root root  100 Dec 29  2013 .cshrc
+-rw-r--r--.  1 root root  129 Dec 29  2013 .tcshrc
+
+./scripts:
+total 8
+dr-xr-x---. 5 root root 197 Apr 18 11:43 ..
+drwxr-xr-x. 2 root root  32 Apr 18 11:00 .
+-rw-r--r--. 1 root root  70 Apr 18 11:00 s2.sh
+-rwxr-xr-x. 1 root root 157 Apr 18 10:56 s1.sh
+
+./.pki:
+total 0
+dr-xr-x---. 5 root root 197 Apr 18 11:43 ..
+drwxr-----. 3 root root  19 Apr 16 11:08 .
+drwxr-----. 2 root root   6 Apr 16 11:08 nssdb
+
+./.pki/nssdb:
+total 0
+drwxr-----. 2 root root  6 Apr 16 11:08 .
+drwxr-----. 3 root root 19 Apr 16 11:08 ..
+
+./.ssh:
+total 4
+dr-xr-x---. 5 root root 197 Apr 18 11:43 ..
+drwx------. 2 root root  29 Apr 16 10:00 .
+-rw-------. 1 root root 549 Apr 16 10:00 authorized_keys
+[root@ip-172-31-31-157 ~]# touch /scripts/jenkins/demo1.xml
+[root@ip-172-31-31-157 ~]# cd /scripts/jenkins/
+[root@ip-172-31-31-157 jenkins]# ll
+total 4
+-rw-r--r--. 1 root root 43 Apr 18 11:49 demo
+-rw-r--r--. 1 root root  0 Apr 18 11:57 demo1.xml
+[root@ip-172-31-31-157 jenkins]#
+[root@ip-172-31-31-157 jenkins]# cd ..
+[root@ip-172-31-31-157 scripts]# cd /root
+[root@ip-172-31-31-157 ~]# cp -r /scripts/ /tmp
+[root@ip-172-31-31-157 ~]# cd /tmp
+[root@ip-172-31-31-157 tmp]# ll
+total 4
+-rw-r--r--. 1 root root 23 Apr 18 11:45 demofile
+drwxr-xr-x. 3 root root 21 Apr 18 12:00 scripts
+drwx------. 3 root root 17 Apr 17 10:05 systemd-private-2af7ffeb5a414c69b2db95d51db0bb3c-chronyd.service-2ID4UQ
+[root@ip-172-31-31-157 tmp]# cd /scripts/
+[root@ip-172-31-31-157 scripts]# ll
+total 0
+drwxr-xr-x. 2 root root 35 Apr 18 11:57 jenkins
+[root@ip-172-31-31-157 scripts]# cd jenkins
+[root@ip-172-31-31-157 jenkins]# ll
+total 4
+-rw-r--r--. 1 root root 43 Apr 18 11:49 demo
+-rw-r--r--. 1 root root  0 Apr 18 11:57 demo1.xml
+[root@ip-172-31-31-157 jenkins]# cd ..
+[root@ip-172-31-31-157 scripts]# cd /root
+[root@ip-172-31-31-157 ~]# wc -l /scripts/jenkins/demo
+2 /scripts/jenkins/demo
+[root@ip-172-31-31-157 ~]# cat /scripts/jenkins/demo
+this is the scripting file
+in jenkins dir
+[root@ip-172-31-31-157 ~]# wc /scripts/jenkins/demo
+ 2  8 43 /scripts/jenkins/demo
