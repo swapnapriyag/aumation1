@@ -40,7 +40,7 @@ ls -ltra :including all hidden files also
 ls a*
 ls z*   :to list the all files starting with specific letter      
         :including file permissions also
-ls d*   :You want to get a directory listing of all the files beginning with the letter "d". You type
+ls d*   :You want to get a directory listing of all the files beginning with the letter "d".
 ls -ld  :It will give the list of directories, without descending into subdirectories.
 vi filename :to create the file
 esc+i/insert :to write in the file.
@@ -63,6 +63,8 @@ remove -f test1,test2,......:forcefully deletes the file.
 chmod 644 filename :change the file permissions
 chmod -R 777* :for directiory permissions.
 chown -R user:group filename/directory
+more filename   : to see the small files content
+less filename   : to see the file content with navigation keys(arrows)
 id username  :displays the user id
 chage -l username  :displays the user password expired or not
 /etc/passwd   :user information available here
@@ -73,13 +75,30 @@ echo $SHELL   :shell
 echo $PWD     :present path
 echo $USER    :which user we have logged in
 $HOME         :/home/ec2-user
-yum install packagename
-yum repolist
-yum remove packagename
-yum grouplist
-systemctl enable httpd
-systemctl start httpd
-systemctl stop httpd
-ps -ef | grep httpd
-netstat -anlp | grep ":80"
-
+df -h   : display the file systems
+mkfs   :make the file system
+os bootup commands fdisk,fstab
+fdisk   :for partitions of the disks
+fdisk -l   :to see the hard disk
+fstab    :perminent storage
+yum install packagename  :installing the package
+yum install package1,package2 ....:installs more package
+yum repolist  :list of repositories
+yum remove packagename  :removes the package
+yum remove package1,package2.....:removes the no.of packages
+yum grouplist  :lists the groups
+systemctl enable httpd  :enabling the process
+systemctl start httpd   :start the apache
+systemctl stop httpd    :stop the apache
+ps -ef | grep httpd     :to check the apache running or not
+netstat -anlp | grep ":80"   :how many processes are running on the port no 80
+rpm -qa httpd  :to check the apache is there or not
+rpm -ql jdk*   :to know the package installation location.
+java - version  :to know the java version
+find / - name filename :to find the file where it has located
+find / - name directory -type d
+apache installation paths
+yum 
+rpm
+source code
+binary(zip,tar...)
