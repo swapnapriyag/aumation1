@@ -72,6 +72,8 @@ less filename   : to see the file content with navigation keys(arrows)
 id username  :displays the user id
 chage -l username  :displays the user password expired or not
 /etc/passwd   :user information available here
+passwd username :changing/giving the password to the user
+sudo vi sudoers   :add the user in to the sudoers file
 /etc/group    :group information
 /etc/shadow   :password information
 echo $PATH    :displays the path of the bin 
