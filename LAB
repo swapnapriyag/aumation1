@@ -1727,3 +1727,175 @@ Trying 18.219.202.156...
 
 
 
+
+$ ssh -i bastionkey.pem ec2-user@52.14.65.210
+Last login: Wed Apr 18 18:34:26 2018 from 1.39.175.147
+[ec2-user@ip-172-31-17-64 ~]$ sudo su -
+Last login: Wed Apr 18 18:35:04 UTC 2018 on pts/2
+[root@ip-172-31-17-64 ~]# cd /root
+[root@ip-172-31-17-64 ~]# ll
+total 16
+-rw-------. 1 root root 7752 Mar 23 17:52 anaconda-ks.cfg
+-rw-------. 1 root root 7080 Mar 23 17:52 original-ks.cfg
+drwxr-xr-x. 2 root root   31 Apr 18 18:36 scripts
+[root@ip-172-31-17-64 ~]# cd scripts/
+[root@ip-172-31-17-64 scripts]# ll
+total 0
+[root@ip-172-31-17-64 scripts]# vi apacheinstall.sh
+[root@ip-172-31-17-64 scripts]# ./apacheinstall.sh
+-bash: ./apacheinstall.sh: Permission denied
+[root@ip-172-31-17-64 scripts]# sudo su -
+Last login: Wed Apr 18 19:24:00 UTC 2018 on pts/3
+[root@ip-172-31-17-64 ~]# ./apacheinstall.sh
+-bash: ./apacheinstall.sh: No such file or directory
+[root@ip-172-31-17-64 ~]# sh apacheinstall.sh
+sh: apacheinstall.sh: No such file or directory
+[root@ip-172-31-17-64 ~]# cd scripts/
+[root@ip-172-31-17-64 scripts]# ll
+total 4
+-rw-r--r--. 1 root root 574 Apr 18 19:24 apacheinstall.sh
+[root@ip-172-31-17-64 scripts]# chmod 755 apacheinstall.sh
+[root@ip-172-31-17-64 scripts]# ./apacheinstall.sh
+Linux ip-172-31-17-64.us-east-2.compute.internal 3.10.0-862.el7.x86_64 #1 SMP Wed Mar 21 18:14:51 EDT 2018 x86_64 x86_64 x86_64 GNU/Linux
+Loaded plugins: amazon-id, rhui-lb, search-disabled-repos
+Package zip-3.0-11.el7.x86_64 already installed and latest version
+Package unzip-6.0-19.el7.x86_64 already installed and latest version
+Package httpd-2.4.6-80.el7.x86_64 already installed and latest version
+Nothing to do
+package installed successfully
+--2018-04-18 19:27:07--  https://github.com/BlackrockDigital/startbootstrap-coming-soon/archive/gh-pages.zip
+Resolving github.com (github.com)... 192.30.253.112, 192.30.253.113
+Connecting to github.com (github.com)|192.30.253.112|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://codeload.github.com/BlackrockDigital/startbootstrap-coming-soon/zip/gh-pages [following]
+--2018-04-18 19:27:08--  https://codeload.github.com/BlackrockDigital/startbootstrap-coming-soon/zip/gh-pages
+Resolving codeload.github.com (codeload.github.com)... 192.30.253.120, 192.30.253.121
+Connecting to codeload.github.com (codeload.github.com)|192.30.253.120|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 8823036 (8.4M) [application/zip]
+Saving to: ‘gh-pages.zip’
+
+100%[======================================================================================================================================================>] 8,823,036   7.51MB/s   in 1.1s
+
+2018-04-18 19:27:09 (7.51 MB/s) - ‘gh-pages.zip’ saved [8823036/8823036]
+
+Archive:  gh-pages.zip
+e815436b2acab9e8bc27aa0f9df3ba3aa71a8ea1
+   creating: startbootstrap-coming-soon-gh-pages/
+ extracting: startbootstrap-coming-soon-gh-pages/.gitignore
+  inflating: startbootstrap-coming-soon-gh-pages/.travis.yml
+  inflating: startbootstrap-coming-soon-gh-pages/LICENSE
+  inflating: startbootstrap-coming-soon-gh-pages/README.md
+   creating: startbootstrap-coming-soon-gh-pages/css/
+  inflating: startbootstrap-coming-soon-gh-pages/css/coming-soon.css
+  inflating: startbootstrap-coming-soon-gh-pages/css/coming-soon.min.css
+  inflating: startbootstrap-coming-soon-gh-pages/gulpfile.js
+   creating: startbootstrap-coming-soon-gh-pages/img/
+  inflating: startbootstrap-coming-soon-gh-pages/img/bg-mobile-fallback.jpg
+  inflating: startbootstrap-coming-soon-gh-pages/index.html
+   creating: startbootstrap-coming-soon-gh-pages/js/
+  inflating: startbootstrap-coming-soon-gh-pages/js/coming-soon.js
+  inflating: startbootstrap-coming-soon-gh-pages/js/coming-soon.min.js
+   creating: startbootstrap-coming-soon-gh-pages/mp4/
+  inflating: startbootstrap-coming-soon-gh-pages/mp4/bg.mp4
+  inflating: startbootstrap-coming-soon-gh-pages/package-lock.json
+  inflating: startbootstrap-coming-soon-gh-pages/package.json
+   creating: startbootstrap-coming-soon-gh-pages/scss/
+  inflating: startbootstrap-coming-soon-gh-pages/scss/_bootstrap-overrides.scss
+  inflating: startbootstrap-coming-soon-gh-pages/scss/_global.scss
+  inflating: startbootstrap-coming-soon-gh-pages/scss/_masthead.scss
+  inflating: startbootstrap-coming-soon-gh-pages/scss/_mixins.scss
+  inflating: startbootstrap-coming-soon-gh-pages/scss/_social.scss
+  inflating: startbootstrap-coming-soon-gh-pages/scss/_variables.scss
+  inflating: startbootstrap-coming-soon-gh-pages/scss/coming-soon.scss
+   creating: startbootstrap-coming-soon-gh-pages/vendor/
+   creating: startbootstrap-coming-soon-gh-pages/vendor/bootstrap/
+   creating: startbootstrap-coming-soon-gh-pages/vendor/bootstrap/css/
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/bootstrap/css/bootstrap-grid.css
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/bootstrap/css/bootstrap-grid.css.map
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/bootstrap/css/bootstrap-grid.min.css
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/bootstrap/css/bootstrap-grid.min.css.map
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/bootstrap/css/bootstrap-reboot.css
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/bootstrap/css/bootstrap-reboot.css.map
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/bootstrap/css/bootstrap-reboot.min.css
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/bootstrap/css/bootstrap-reboot.min.css.map
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/bootstrap/css/bootstrap.css
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/bootstrap/css/bootstrap.css.map
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/bootstrap/css/bootstrap.min.css
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/bootstrap/css/bootstrap.min.css.map
+   creating: startbootstrap-coming-soon-gh-pages/vendor/bootstrap/js/
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/bootstrap/js/bootstrap.bundle.js
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/bootstrap/js/bootstrap.bundle.js.map
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js.map
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/bootstrap/js/bootstrap.js
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/bootstrap/js/bootstrap.js.map
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/bootstrap/js/bootstrap.min.js
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/bootstrap/js/bootstrap.min.js.map
+   creating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/
+   creating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/css/
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/css/font-awesome.css
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/css/font-awesome.css.map
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/css/font-awesome.min.css
+   creating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/fonts/
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/fonts/FontAwesome.otf
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/fonts/fontawesome-webfont.eot
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/fonts/fontawesome-webfont.svg
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/fonts/fontawesome-webfont.ttf
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/fonts/fontawesome-webfont.woff
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/fonts/fontawesome-webfont.woff2
+   creating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/less/
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/less/animated.less
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/less/bordered-pulled.less
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/less/core.less
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/less/fixed-width.less
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/less/font-awesome.less
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/less/icons.less
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/less/larger.less
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/less/list.less
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/less/mixins.less
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/less/path.less
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/less/rotated-flipped.less
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/less/screen-reader.less
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/less/stacked.less
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/less/variables.less
+   creating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/scss/
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/scss/_animated.scss
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/scss/_bordered-pulled.scss
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/scss/_core.scss
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/scss/_fixed-width.scss
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/scss/_icons.scss
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/scss/_larger.scss
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/scss/_list.scss
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/scss/_mixins.scss
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/scss/_path.scss
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/scss/_rotated-flipped.scss
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/scss/_screen-reader.scss
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/scss/_stacked.scss
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/scss/_variables.scss
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/font-awesome/scss/font-awesome.scss
+   creating: startbootstrap-coming-soon-gh-pages/vendor/jquery/
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/jquery/jquery.js
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/jquery/jquery.min.js
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/jquery/jquery.min.map
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/jquery/jquery.slim.js
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/jquery/jquery.slim.min.js
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/jquery/jquery.slim.min.map
+   creating: startbootstrap-coming-soon-gh-pages/vendor/vide/
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/vide/jquery.vide.js
+  inflating: startbootstrap-coming-soon-gh-pages/vendor/vide/jquery.vide.min.js
+./apacheinstall.sh: line 10: cd: startbootstrap-coming-soon/archive/gh-pages.zip: No such file or directory
+Created symlink from /etc/systemd/system/multi-user.target.wants/httpd.service to /usr/lib/systemd/system/httpd.service.
+waiting for the request
+./apacheinstall.sh: line 14: telnet: command not found
+port opened
+root      4665     1  0 19:27 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
+apache    4666  4665  0 19:27 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
+apache    4667  4665  0 19:27 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
+apache    4668  4665  0 19:27 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
+apache    4669  4665  0 19:27 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
+apache    4670  4665  0 19:27 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
+root      4672  4626  0 19:27 pts/3    00:00:00 grep httpd
+Last login: Wed Apr 18 19:25:26 UTC 2018 on pts/3
+[root@ip-172-31-17-64 ~]#
+
