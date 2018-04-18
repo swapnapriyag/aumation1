@@ -1,0 +1,164 @@
+    1  cd /var/www/html
+    2  vi index.html
+    3  exit
+    4  cd -
+    5  echo " this is the demo file" > demo
+    6  ll
+    7  mv demo demofile
+    8  ll
+    9  mv demofile /tmp
+   10  cat /opt/demofile
+   11  cd /tmp
+   12  ll
+   13  cat demofile
+   14  mv demofile /opt
+   15  cd ..
+   16  cd /opt
+   17  ll
+   18  cp demofile /tmp/
+   19  cat /tmp/demofile
+   20  cd ..
+   21  rm -rf /opt/demofile
+   22  cd /opt
+   23  ll
+   24  cd /root
+   25  ll
+   26  mkdir -p /scripts/jenkins/
+   27  cd /scripts/jenkins/
+   28  ll
+   29  echo "this is the scripting file
+   30  in jenkins dir" > demo
+   31  ll
+   32  ls -lRt
+   33  cd /scripts
+   34  cd /root
+   35  pwd
+   36  ll
+   37  ls -lRt
+   38  ls -lRta
+   39  touch /scripts/jenkins/demo1.xml
+   40  cd /scripts/jenkins/
+   41  ll
+   42  cd ..
+   43  cd /root
+   44  cp -r /scripts/ /tmp
+   45  cd /tmp
+   46  ll
+   47  cd /scripts/
+   48  ll
+   49  cd jenkins
+   50  ll
+   51  cd ..
+   52  cd /root
+   53  wc -l /scripts/jenkins/demo
+   54  cat /scripts/jenkins/demo
+   55  wc /scripts/jenkins/demo
+   56  sudo su - ec2-user
+   57  useradd user
+   58  useradd user1
+   59  id user1
+   60  /etc/passwd
+   61  cd /etc/passwd
+   62  cd /etc
+   63  ll
+   64  ls p*
+   65  cd ..
+   66  sudo su -
+   67  id username
+   68  id
+   69  sudo su - ec2-user
+   70  ./s1.sh
+   71  cd scripts/
+   72  ./s1.sh
+   73  cd ..
+   74  ./s1.sh /scripts
+   75  ./s1.sh /root/scripts
+   76  cd /opt/
+   77  ./s1.sh /root/scripts/
+   78  cd -
+   79  pwd
+   80  hostname
+   81  sudo su - ec2-user
+   82  mkdir scripts
+   83  ll
+   84  pwd
+   85  cd scripts/
+   86  vi s1.sh
+   87  ll
+   88  cat s1.sh
+   89  sh s1.sh
+   90  vi s1.sh
+   91  sh s1.sh
+   92  vi s2.sh
+   93  cat s2.sh
+   94  sh s2.sh
+   95  chmod 755 s1.sh
+   96  ll
+   97  chown -R user:group s2.sh
+   98  ./s1.sh
+   99  cd ..
+  100  sudo su -
+  101  mkdir -p /opt/test/
+  102  touch /opt/test/demo{1-10}
+  103  ls -ltr /opt/test/
+  104  ll
+  105  ls user
+  106  lsuser
+  107  id
+  108  id user1
+  109  cd /
+  110  ll
+  111  cd hom
+  112  cd home
+  113  ll
+  114  cd /etc/passwd
+  115  cd /etc
+  116  ll
+  117  cat passwd
+  118  sudo useradd user2
+  119  cat passwd
+  120  cat shadow
+  121  cat group
+  122  sudo su - ec2-user
+  123  passwd ec2-user
+  124  su - ec2-user
+  125  passwd user1
+  126  su - user1
+  127  id
+  128  id swapna
+  129  su - swapna
+  130  su - user1
+  131  ll
+  132  cd yum.repos.d
+  133  ll
+  134  vi redhat-rhui.repo
+  135  echo $HTTP_PROXY
+  136  exit
+  137  cd scripts/
+  138  ll
+  139  vi base.sh
+  140  sh base.sh
+  141  uname -a
+  142  rpm -qa httpd
+  143  arch
+  144  sudo systemctl enable httpd
+  145  ps -ef |grep httpd
+  146  systemctl enable httpd
+  147  systemctl start httpd
+  148  systemctl enable httpd
+  149  ps -ef |grep httpd
+  150  systemctl stop httpd
+  151  ps -ef |grep httpd
+  152  netstat -anlp |grep ":80"
+  153  systemctl start httpd
+  154  ps -ef |grep httpd
+  155  netstat -anlp |grep ":80"
+  156  netstat -anlp |grep ":22"
+  157  netstat -anlp |grep ":80"
+  158  netstat -anlp |grep ":22"
+  159  netstat -anlp |grep ":80"
+  160  telnet 18.219.202.156 80
+  161  sudo yum install telnet
+  162  telnet 18.219.202.156 80
+  163  telnet 18.219.202.156 81
+  164  history
