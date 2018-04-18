@@ -1,3 +1,4 @@
+hostname   :server name
 uname   :displays the os
 uname -a:more detailed with prvt ip
 cat /etc/redhot-release
@@ -37,15 +38,18 @@ w        :displays current loggedin user
 top(in this zombi should always zero)
 last
 ls -ltra :including all hidden files also
+ls -ltrh :human readable format
 ls a*
 ls z*   :to list the all files starting with specific letter      
         :including file permissions also
 ls d*   :You want to get a directory listing of all the files beginning with the letter "d".
 ls -ld  :It will give the list of directories, without descending into subdirectories.
+ls -lRt  : all directories and internal files also not hidden files.
+ls -lRta : including hidden files also
 vi filename :to create the file
 esc+i/insert :to write in the file.
 esc:set nu:giving the line numbers.
-esc:wc -l:displays total words count in the file 
+esc:wc -l: total words count in the file 
 esc:1   :goes to the line 1
 esc:wq! :with save and quit
 esc:q!  :with out sva and quit
@@ -102,3 +106,4 @@ yum
 rpm
 source code
 binary(zip,tar...)
+useradd username  :creating the user
