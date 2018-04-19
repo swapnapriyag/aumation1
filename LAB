@@ -1899,3 +1899,135 @@ root      4672  4626  0 19:27 pts/3    00:00:00 grep httpd
 Last login: Wed Apr 18 19:25:26 UTC 2018 on pts/3
 [root@ip-172-31-17-64 ~]#
 
+
+
+
+
+$ ssh -i bastionkey.pem ec2-user@18.219.180.46
+Last login: Thu Apr 19 14:25:50 2018
+[ec2-user@webserver1 ~]$ sudo su -
+Last login: Thu Apr 19 14:25:34 UTC 2018 on pts/2
+[root@webserver1 ~]# cd scripts/
+[root@webserver1 scripts]# ll
+total 16
+-rwxr-xr-x. 1 root root 537 Apr 19 13:29 apachewebsite.sh
+-rw-r--r--. 1 root root 122 Apr 18 15:22 base.sh
+-rwxr-xr-x. 1 root root 157 Apr 18 10:56 s1.sh
+-rw-r--r--. 1 root root  70 Apr 18 11:00 s2.sh
+[root@webserver1 scripts]# vi apachewebsite.sh
+[root@webserver1 scripts]# vi apachewebsite.sh
+[root@webserver1 scripts]# vi apachewebsite.sh
+[root@webserver1 scripts]# ll
+total 16
+-rwxr-xr-x. 1 root root 545 Apr 19 14:52 apachewebsite.sh
+-rw-r--r--. 1 root root 122 Apr 18 15:22 base.sh
+-rwxr-xr-x. 1 root root 157 Apr 18 10:56 s1.sh
+-rw-r--r--. 1 root root  70 Apr 18 11:00 s2.sh
+[root@webserver1 scripts]# sudo yum remove httpd
+Loaded plugins: amazon-id, rhui-lb, search-disabled-repos
+Resolving Dependencies
+--> Running transaction check
+---> Package httpd.x86_64 0:2.4.6-80.el7 will be erased
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================================================================================================================================
+ Package                              Arch                                  Version                                      Repository                                                        Size
+================================================================================================================================================================================================
+Removing:
+ httpd                                x86_64                                2.4.6-80.el7                                 @rhui-REGION-rhel-server-releases                                3.7 M
+
+Transaction Summary
+================================================================================================================================================================================================
+Remove  1 Package
+
+Installed size: 3.7 M
+Is this ok [y/N]: y
+Downloading packages:
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Erasing    : httpd-2.4.6-80.el7.x86_64                                                                                                                                                    1/1
+  Verifying  : httpd-2.4.6-80.el7.x86_64                                                                                                                                                    1/1
+
+Removed:
+  httpd.x86_64 0:2.4.6-80.el7
+
+Complete!
+[root@webserver1 scripts]# ./apachewebsite.sh
+./apachewebsite.sh: line 1: !/bin/bash: No such file or directory
+Linux webserver1 3.10.0-862.el7.x86_64 #1 SMP Wed Mar 21 18:14:51 EDT 2018 x86_64 x86_64 x86_64 GNU/Linux
+Loaded plugins: amazon-id, rhui-lb, search-disabled-repos
+Package zip-3.0-11.el7.x86_64 already installed and latest version
+Package unzip-6.0-19.el7.x86_64 already installed and latest version
+Resolving Dependencies
+--> Running transaction check
+---> Package httpd.x86_64 0:2.4.6-80.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================================================================================================================================
+ Package                              Arch                                  Version                                       Repository                                                       Size
+================================================================================================================================================================================================
+Installing:
+ httpd                                x86_64                                2.4.6-80.el7                                  rhui-REGION-rhel-server-releases                                1.2 M
+
+Transaction Summary
+================================================================================================================================================================================================
+Install  1 Package
+
+Total download size: 1.2 M
+Installed size: 3.7 M
+Downloading packages:
+httpd-2.4.6-80.el7.x86_64.rpm                                                                                                                                            | 1.2 MB  00:00:00
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : httpd-2.4.6-80.el7.x86_64                                                                                                                                                    1/1
+  Verifying  : httpd-2.4.6-80.el7.x86_64                                                                                                                                                    1/1
+
+Installed:
+  httpd.x86_64 0:2.4.6-80.el7
+
+Complete!
+package installed successfully
+--2018-04-19 14:53:38--  http://www.free-css.com/assets/files/free-css-templates/download/page226/company.zip
+Resolving www.free-css.com (www.free-css.com)... 87.106.49.96, 2001:8d8:86b:143e:aa3b:e03e:69a0:0
+Connecting to www.free-css.com (www.free-css.com)|87.106.49.96|:80... connected.
+HTTP request sent, awaiting response... 403 Forbidden
+2018-04-19 14:53:38 ERROR 403: Forbidden.
+
+downloaded the image file successfully
+unzip:  cannot find or open company.zip, company.zip.zip or company.zip.ZIP.
+rm: invalid option -- '*'
+Try 'rm --help' for more information.
+./apachewebsite.sh: line 13: ls-ltr: command not found
+total 17356
+drwxr-xr-x. 8 root root     226 Feb 19 03:47 startbootstrap-coming-soon-gh-pages
+-rw-r--r--. 1 root root 8823036 Apr 19 13:17 gh-pages.zip
+-rw-r--r--. 1 root root 8823036 Apr 19 13:29 gh-pages.zip.1
+-rw-r--r--. 1 root root  118170 Apr 19 14:19 index.html
+Created symlink from /etc/systemd/system/multi-user.target.wants/httpd.service to /usr/lib/systemd/system/httpd.service.
+started the all os level services
+Trying 18.219.180.46...
+telnet: connect to address 18.219.180.46: Connection refused
+root      2404     1  0 14:53 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
+apache    2405  2404  0 14:53 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
+apache    2406  2404  0 14:53 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
+apache    2407  2404  0 14:53 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
+apache    2408  2404  0 14:53 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
+apache    2409  2404  0 14:53 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
+root      2411  2340  0 14:53 pts/2    00:00:00 grep httpd
+apache started
+
+
+
+
+
+
+
+
