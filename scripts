@@ -1,0 +1,29 @@
+apache website automation with template
+
+
+
+#!/bin/bash
+uname -a
+yum install zip unzip httpd -y
+sleep 5
+echo "package installed successfully"
+mkdir -p /tmp/website
+cd /tmp/website
+wget http://www.free-css.com/assets/files/free-css-templates/download/page226/company.zip
+echo "downloaded the image file successfully"
+unzip company.zip
+cd /var/www/html
+rm -rf*
+ls-ltr
+cd /tmp/website
+cp -r * /var/www/html
+ls -ltr
+systemctl enable httpd
+echo "started the all os level services"
+netstat -anlp |grep ":80"
+telnet 18.219.180.46 80
+systemctl start httpd
+ps -ef | grep httpd
+echo "apache started"
+~
+~
