@@ -162,3 +162,59 @@
   162  telnet 18.219.202.156 80
   163  telnet 18.219.202.156 81
   164  history
+
+
+
+
+
+  106  sudo su -
+  107  vi /etc/yum.repos.d/nginx.repo
+  108  yum install nginx
+  109  sudo yum install epel-release
+  110  cd /etc/
+  111  ls -ltr
+  112  cd /etc/yum.repos.d
+  113  ls -ltr
+  114  rm nginx.repo
+  115  ll
+  116  sudo yum install epel-release
+  117  vi vi /etc/yum.repos.d/nginx.repo
+  118  yum update
+  119  yum install nginx
+  120  sudo yum install epel-release
+  121  cd /tmp
+  122  wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+  123  ls -ltr
+  124  rpm -ivh epel-release-latest-7.noarch.rpm
+  125  yum install nginx
+  126  cd /etc/
+  127  ls -ltr
+  128  cd nginx
+  129  ls -ltr
+  130  yum install httpd
+  131  yum install zip unzip wget -y
+  132  cd tmp
+  133  cd /tmp
+  134  wget http://nginx.org/en/linux_packages.html#stable
+  135  ls -ltr
+  136  pwd
+  137  mkdir scripts
+  138  cd
+  139  cd scripts
+  140  vi apachescript
+  141  cd /etc
+  142  ll
+  143  vi hostname
+  144  vi /hosts
+  145  ll
+  146  vi hostname
+  147  vi hosts
+  148  vi hostname
+  149  vi hosts
+  150  hostname -f /etc/hostname
+  151  hostname
+  152  vi hostname
+  153  vi hosts
+  154  hostname -f /etc/hostname
+  155  hostname
+  156  history
