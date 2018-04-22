@@ -27,3 +27,26 @@ ps -ef | grep httpd
 echo "apache started"
 ~
 ~
+
+
+
+
+
+installation of tomcat
+
+
+!/bin/bash
+uname -a
+yum install zip unzip telnet wget -y
+sleep 5
+mkdir -p /opt/tomcat
+mkdir -p /tmp/tomcatpackage
+cd /tmp/tomcatpackage
+wget http://redrockdigimark.com/apachemirror/tomcat/tomcat-8/v8.5.30/bin/apache-tomcat-8.5.30-windows-x64.zip
+cp -r * /opt/tomcat
+cd /opt/tomcat
+unzip apache-tomcat-8.5.30-windows-x64.zip
+cd /opt/tomcat/apache-tomcat-8.5.30
+chmod 700 bin
+./startup.sh
+ps -ef | grep tomcat
