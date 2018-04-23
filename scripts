@@ -73,3 +73,13 @@ ansible installation by enabling the epel
 	yum install ansible -y
 	echo "installed ansible"
 	ansible --version
+	
+	
+	
+	
+	
+	
+	nginx installation
+	
+	
+	
