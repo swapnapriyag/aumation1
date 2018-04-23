@@ -1,6 +1,7 @@
 installations
 
-    http server:::
+    http server:::yum install httpd -y
+    (it'll search in yem.repo file) 
    
    enabling the epel
    ansible:::::::http://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-7-11.noarch.rpm -O
