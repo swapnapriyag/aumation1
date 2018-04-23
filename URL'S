@@ -2,11 +2,18 @@ installations
 
     http server:::
    
-   
+   enabling the epel
    ansible:::::::http://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-7-11.noarch.rpm -O
+   # rpm -ivh epel-release-latest-7.noarch.rpm
+
    
+   nginix :::::::download the rpm package and do the rpm -ivh(same as ansible)
+   sudo yum install epel-release
+   sudo yum install nginx
+   yum update
+   systemctl enable nginx
+   systemctl start nginx
    
-   nginix :::::::
    
    
    tomcat :::::::http://redrockdigimark.com/apachemirror/tomcat/tomcat-8/v8.5.30/bin/apache-tomcat-8.5.30-windows-x64.zip
