@@ -56,7 +56,7 @@ ps -ef | grep tomcat
 
 
 
-ansible installation
+ansible installation by enabling the epel
 
 #!/bin/bash
 	cd /tmp
