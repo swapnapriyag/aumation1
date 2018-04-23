@@ -50,3 +50,26 @@ cd /opt/tomcat/apache-tomcat-8.5.30
 chmod 700 bin
 ./startup.sh
 ps -ef | grep tomcat
+
+
+
+
+
+
+ansible installation
+
+#!/bin/bash
+	cd /tmp
+	mkdir ansiblepackage
+	cd ansiblepackage
+	echo "enabling the epel and downloading the rpm pack of ansible"
+	rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+	cd /root
+	mkdir ansible
+	cd ansible
+	rm -r * .rpm
+	ll
+	echo "installing the ansible"
+	yum install ansible -y
+	echo "installed ansible"
+	ansible --version
