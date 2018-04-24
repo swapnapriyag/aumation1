@@ -17,7 +17,24 @@ installations
    
    
    
+   
+   aws------->command not found 
+   install aws bundle installer
+   
+   
+   curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+   unzip awscli-bundle.zip
+   sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+  
+
+
+
+
+
+
    tomcat :::::::http://redrockdigimark.com/apachemirror/tomcat/tomcat-8/v8.5.30/bin/apache-tomcat-8.5.30-windows-x64.zip
+   
+   
    
    
    
