@@ -1,0 +1,22 @@
+  19  wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+   20          rpm -ivh epel-release-latest-7.noarch.rpm
+   21  rpm -ivh epel-release-latest-7.noarch.rpm
+   22  yum install         rpm -ivh epel-release-latest-7.noarch.rpm
+   23  yum install rpm -ivh epel-release-latest-7.noarch.rpm
+   24  yum install rpm -uvh epel-release-latest-7.noarch.rpm
+   25  curl -O https://bootstrap.pypa.io/get-pip.py
+   26  phyton get-pip.py --user
+   27  python get-pip.py --user
+   28  pip
+   29  export PATH=~/.local/bin:PATH
+   30  source ~/.bash_profile
+   31  pip
+   32  pip install awscli
+   33  aws configure
+   34  yum install aws
+   35  install yum
+   36  AKIAI3Z6SXJ3LVDO2N3A
+   37  rh9vCEBOJBWu52n66rBQ69h+ZbJ7ZB8LMS/IPuep
+   38  us-east-2
+   39  aws ec2 aws ec2
+   40  history
