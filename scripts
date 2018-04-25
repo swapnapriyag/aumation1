@@ -151,3 +151,12 @@ ansible installation by enabling the epel(download rpm package and do rpm -ivh p
 	===========================
 	
 	
+        aws cli
+        =======
+        #!/bin/bash
+        #Installing the aws cli
+        yum install unzip -y
+        curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+        unzip awscli-bundle.zip
+        sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+        echo "AWS Cli Installation completed"
