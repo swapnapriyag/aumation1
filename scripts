@@ -63,7 +63,8 @@ ansible installation by enabling the epel(download rpm package and do rpm -ivh p
 	mkdir ansiblepackage
 	cd ansiblepackage
 	echo "enabling the epel and downloading the rpm pack of ansible"
-	rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm           
+	wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+        rpm -ivh epel-release-latest-7.noarch.rpm          
 	cd /root
 	mkdir ansible
 	cd ansible
@@ -78,8 +79,7 @@ ansible installation by enabling the epel(download rpm package and do rpm -ivh p
 	
 	
 	         (or)
-	wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-        rpm -ivh epel-release-latest-7.noarch.rpm
+	rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm 
 	         (or)
         wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 	sudo yum install epel-release-latest-7.noarch.rpm
