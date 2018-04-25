@@ -1,5 +1,42 @@
-apache website automation with template
+connecting to the servers throug the name
+========================================
 
+#!/bin/bash
+echo "connecting to servers"
+echo "enter the server name which you want to connect"
+read servername
+ssh -i /root/sshlogin.pem ec2-user@$servername
+
+
+
+alias commands(login to the server with out executing the script)(after done the above script)(update the bashrc filr)
+=======================================================================================================================
+
+vi .bashrc
+alias sshlogin='/root/scripts/hostname.sh'
+source .bashrc
+
+
+
+changing the hostname 
+======================
+Dynamically changing the servername with shell script
+#!/bin/bash
+echo "Enter your hostname"
+read servername
+echo "you are going to set hostname is $servername"
+echo "$servername" >/etc/hostname
+#privateip=$((ifconfig eth0 | grep -w 'inet' | awk '{print $2}'))
+privateip=$(hostname -I)
+echo "$privateip $servername" >>/etc/hosts
+hostname -F /etc/hostname
+echo "your servername is :`hostname` "
+echo "your servername is :$HOSTNAME "
+~
+
+
+apache website automation with template
+=======================================
 
 
 #!/bin/bash
@@ -33,7 +70,7 @@ echo "apache started"
 
 
 installation of tomcat
-
+========================
 
 !/bin/bash
 uname -a
@@ -57,7 +94,7 @@ ps -ef | grep tomcat
 
 
 ansible installation by enabling the epel(download rpm package and do rpm -ivh packagename)
-
+============================================================================================
 #!/bin/bash
 	cd /tmp
 	mkdir ansiblepackage
@@ -90,7 +127,7 @@ ansible installation by enabling the epel(download rpm package and do rpm -ivh p
 	
 	
 	nginx installation
-	
+	==================
 	
 	
        #!/bin/bash
@@ -108,5 +145,9 @@ ansible installation by enabling the epel(download rpm package and do rpm -ivh p
        systemctl start nginx.service
 	
 	
+	
+	
+	aws cli(for aws)(s3 to aws)
+	===========================
 	
 	
