@@ -67,6 +67,22 @@ echo "apache started"
 
 
 
+nginx with template
+===================
+#!/bin/bash
+cd /root
+wget http://www.free-css.com/assets/files/free-css-templates/download/page226/company.zip
+echo "downloaded the image file successfully"
+unzip company.zip
+rm -rf * /usr/share/nginx/html
+cp -r * /usr/share/nginx/html
+cd /usr/share/nginx/html
+ls-ltr
+cd~
+syatemctl stop nginx
+ps -ef | grep nginx
+systemctl start nginx.service
+ps -ef | grep nginx
 
 
 installation of tomcat
