@@ -7,20 +7,30 @@ With root user folling the below steps.
  
  Logout and login to the server, it will be effort next login.
  
- 
- From bastion server we need modify the hostname 
+ ==================================================================================================
+ From bastion server end, need to modify the hostname 
    vi /etc/hostname
    Bastion
    hostname -F /etc/hostname  -- this command to restart the services 
    
-we need to estabilshed with server to server communication with bastion, 
-1. required apache server hostname and server prive ip
+we need to estabilshed the server to server communication on bastion server. 
+
+Required apache server hostname and server prive ip
     ipaddress   hosname 
 
 
 hostname -F /etc/hostname  -- this command to restart the services 
    
-   
+ ==============================================================================================================  
+ 
+Apache installation with scripts
+------------------------------------------------------------
+yum install wget zip unzip heepd -y
+
+sleep 10
+
+systemctl enable httpd
+systemctl start httpd
 
 
    
