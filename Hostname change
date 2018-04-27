@@ -1,13 +1,30 @@
 How to rename the hostanme from linux server ?
 
-with root user folling the below steps.
-
-  vi /etc/hostname
-   
-   apache  ---------- insert the entry(removed and existing entry)
-  
+With root user folling the below steps.
+ vi /etc/hostname
+ apache  ---------- insert the entry(removed and existing entry)
  hostname -F /etc/hostname  -- this command to restart the services 
- logout and login to the server, it will be effort next login 
+ 
+ Logout and login to the server, it will be effort next login.
+ 
+ 
+ From bastion server we need modify the hostname 
+   vi /etc/hostname
+   Bastion
+   hostname -F /etc/hostname  -- this command to restart the services 
+   
+we need to estabilshed with server to server communication with bastion, 
+1. required apache server hostname and server prive ip
+    ipaddress   hosname 
+
+
+hostname -F /etc/hostname  -- this command to restart the services 
+   
+   
+
+
+   
+ 
 
 
 
