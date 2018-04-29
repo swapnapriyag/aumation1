@@ -1,0 +1,55 @@
+local server to github
+======================
+yum install git
+                                                    sudo apt-get update
+													sudo apt-get upgrade
+													sudo apt-get install git
+
+git --version
+which git----------to know the installed location
+first we need to create one repository at gui in github
+for cli
+ curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+ unzip awscli-bundle.zip
+ /usr/local/bin/aws --version
+git init centralrepo
+cd centralrepo/
+vi index.html
+vi index1.html
+git add index.html
+git status
+git commit -m "index.html"
+git config --global user.mail "ramumca05@gmail.com"
+git config --global user.name "swapnapriyag"
+git remote add origin https://github.com/swapnapriyag/centralrepo.git
+git push -u origin master
+git --list
+git config --list
+git add index1.html
+git commit -m "index1.html"
+git push -u origin master
+git remote -v----------->to see the git url
+
+
+remote to local(github to server)
+===================================
+install git
+git clone githuburl
+
+ 
+
+
+ 
+github to server(updation b/w github and server)
+================================================ 
+ after done the git installation
+change any file at the local of bastion and do add,commit,push,and check at github
+go to nginx server do 
+git clone giturl
+git pull in that path only 
+
+
+
+
+all commands in that path only
+
