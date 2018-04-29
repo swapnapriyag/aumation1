@@ -1,17 +1,17 @@
-git  init nginx
+git  init nginx         -- to create the new repository in git
    96  ls -ltr
    97  cd nginx
    98  ls -ltr
-   99  git status
-  100  vi index.html
-  101  git add index.html
+   99  git status       -- to check the status of git 
+  100  vi index.html    -- Create one file   
+  101  git add index.html  -- to added a file on git repo
   102  ls -ltr
   103  git commit -m "added index.html"
   104  git config --global user.email
   105  git config --global user.email ramumca05@gmail.com
   106  git config --global user.name swapnapriyag
-  107  git commit -m "added index.html"
-  108  git remote add origin
+  107  git commit -m "added index.html"          -- to commit the data to remote repo
+  108  git remote add origin    
   109  git remote add origin https://github.com/swapnapriyag/nginx.git 
   110  git push -u origin master
   111  ls -ltr
