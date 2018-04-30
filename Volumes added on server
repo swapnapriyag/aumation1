@@ -1,0 +1,19 @@
+1.New volumes creation in AWS
+  Going to volumes and create a new volumes(check the server availability zoing base on the availbility zone we have to creatated the volumes)
+2.New volume added to any server(go to ---> actions---->attached -- server
+3.check in to server in attacheched volume 
+  lsblk  -- find the new disk
+   mkfs.ext4 /dev/xvdf     -- formate the file system new volume
+4 create new directory 
+  Mkdir /devops
+5. vi /etc/fstab  ---- > entry into the new filesystem name (permently added the file system)
+   UUID=50a9826b-3a50-44d0-ad12-28f2056e9927 /                       xfs     defaults        0 0
+   /dev/xvdf                                 /devops                 ext4    defaults        0 0
+6. mount the file system
+   mount -a
+7.After mount the file system check the file system with below command 
+  df -h
+ 
+
+
+  
