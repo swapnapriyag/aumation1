@@ -218,3 +218,126 @@
   154  hostname -f /etc/hostname
   155  hostname
   156  history
+
+
+
+
+
+
+    1  systemctl start httpd
+    2  ps -ef | grep httpd
+    3  exit
+    4  ls -ltr
+    5  pwd
+    6  unzip awscli-bundle.zip
+    7  ls -lt
+    8  rsudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+    9  sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+   10  cd /var/www/html/
+   11  ls -ltr
+   12  pwd
+   13  aws s3 ls
+   14  /usr/local/bin/aws s3 ls
+   15  cd
+   16  ls -ltra
+   17  pwd
+   18  vi .bash_profile
+   19  source .bash_profile
+   20  aws
+   21  cd /var/www/html/
+   22  ls -ltr
+   23  aws s3 ls
+   24  aws s3 ls s3://s3-cicd-webservers/
+   25  aws s3 ls
+   26  aws s3 ls s3://s3-cicd-webservers/
+   27  pwd
+   28  pwd
+   29  cd
+   30  pwd
+   31  ls -ltr
+   32  ls -ltra
+   33  vi .bash_profile
+   34  cd /var/www/html/
+   35  ls -ltr
+   36  aws s3 ls
+   37  aws s3 cp s3://s3-cicd-webservers/index.html .
+   38  ls -ltr
+   39  ps -ef | grep httpd
+   40  systemctl start httpd
+   41  ps -ef | grep httpd
+   42  curl http://localhost
+   43  cd
+   44  hostname
+   45  cd /var/www/html/
+   46  ls -ltr
+   47  aws s3 ls
+   48  aws s3 cp s3://s3-cicd-webservers/ . --recursive
+   49  ls -ltr
+   50  pwd
+   51  rm -rf *
+   52  git
+   53  yum install git -y
+   54  pwd
+   55  git clone https://github.com/gangireddydanam/s3-to-ec2.git
+   56  ls -ltr
+   57  rm -rf s3-to-ec2/
+   58  cd /tmp/
+   59  ls -ltr
+   60  pwd
+   61  git clone https://github.com/gangireddydanam/s3-to-ec2.git
+   62  ls -ltr
+   63  cd s3-to-ec2/
+   64  ls -ltr
+   65  pwd
+   66  cp -r * /var/www/html/
+   67  systemctl stop httpd
+   68  netstat -anlp | grep ":80"
+   69  ps -ef | grep httpd
+   70  netstat -anlp | grep ":80"
+   71  systemctl start httpd
+   72  netstat -anlp | grep ":80"
+   73  cd /var/log/messages
+   74  cd /var/log/httpd/
+   75  pwd
+   76  ls -ltr
+   77  grep -w "503" access_log
+   78  ssh-keygen
+   79  exit
+   80  hostnae
+   81  hostname
+   82  pwd
+   83  ln -s /var/log/httpd/ logs
+   84  ls -ltr
+   85  cd logs
+   86  pwd
+   87  ls -ltr
+   88  df
+   89  df -h
+   90  df -k
+   91  df -m
+   92  ls -ltr
+   93  pwd
+   94  find /etc -name httpd.conf
+   95  df -h
+   96  ls -l /etc/fstab
+   97  df -h
+   98  lsblk
+   99  fdisk -l
+  100  lsblk
+  101  mkfs.ext4 /dev/xvdf
+  102  mkdir /devops
+  103  vi /etc/fstab
+  104  df -h
+  105  mount -a
+  106  df -h
+  107  lsblk
+  108  yum install -y amazon-efs-utils
+  109  yum install -y nfs-utils
+  110  mkdir /efs
+  111  mount -t efs fs-c545ed8d:/ /efs
+  112  mkdir efs
+  113  mount -t efs -o tls fs-c545ed8d:/ efs
+  114  yum -y install nfs-utils
+  115  yum install nfs-common
+  116  mount -t efs fs-c545ed8d:/ efs
+  117  yum install efs-utils -y
