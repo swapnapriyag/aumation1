@@ -224,6 +224,121 @@
 
 
 
+  1  vi /etc/hostname
+    2  ifconfig
+    3  vi /etc/hosts
+    4  ls -ltr
+    5  hostname -F /etc/hostname
+    6  hostname
+    7  ifconfig eth0 | grep 'inet addr' | cut -d: -f2 | awk '{print $1}'
+    8  ifconfig eth0 | grep -w 'inet' | cut -d: -f2 | awk '{print $1}'
+    9  ifconfig eth0 | grep -w 'inet'
+   10  ifconfig eth0 | grep -w 'inet' | awk '{print $2}'
+   11  env
+   12  env | grep -i host
+   13  ls -ltr
+   14  mkdir scripts
+   15  pwd
+   16  whoami
+   17  who
+   18  last
+   19  w
+   20  vi hostname.sh
+   21  ls -ltr
+   22  pwd
+   23  mv hostname.sh scripts/
+   24  ls -ltr
+   25  cd scripts/
+   26  ls -ltr
+   27  chmod 700 hostname.sh
+   28  ls -ltr
+   29  ./hostname.sh
+   30  vi hostname.sh
+   31  ./hostname.sh
+   32  vi hostname.sh
+   33  hostname -I
+   34  ls -ltr
+   35  >hostname.sh
+   36  ls -ltr
+   37  vi hostname.sh
+   38  hostname
+   39  ./hostname.sh
+   40  hostname
+   41  cat /etc/hosts
+   42  hostname
+   43  exit
+   44  pwd
+   45  cd scripts/
+   46  ls -ltr
+   47  pwd
+   48  vi sshlogin.pem
+   49  ls -ltr
+   50  chmod 400 sshlogin.pem
+   51  ls -ltr
+   52  pwd
+   53  ssh -i sshlogin.pem ec2-user@172.31.95.14
+   54  ssh -i sshlogin.pem ec2-user@172.31.84.4
+   55  pwd
+   56  vi /etc/hosts
+   57  history
+   58  ssh -i sshlogin.pem ec2-user@ngnix
+   59  cat /etc/hosts
+   60  ssh -i sshlogin.pem ec2-user@nginx
+   61  ssh -i sshlogin.pem ec2-user@apache
+   62  which slogin
+   63  which sshlogin
+   64  pwd
+   65  ls -ltr
+   66  pwd
+   67  vi login.sh
+   68  ls -ltr
+   69  chmod 700 login.sh
+   70  pwd
+   71  ls -ltr
+   72  cd
+   73  cd /opt/
+   74  pwd
+   75  cd
+   76  cd scripts/
+   77  ls -ltr
+   78  cd
+   79  ls -ltra
+   80  vi .bashrc
+   81  source .bashrc
+   82  cd /opt/
+   83  ls -ltr
+   84  pwd
+   85  sshlogin
+   86  pwd
+   87  sshlogin
+   88  alias
+   89  cat /root/scripts/login.sh
+   90  cat /etc/hosts
+   91  sshlogin
+   92  sshlogin
+   93  sshlogin
+   94  sshlogin
+   95  sshlogin
+   96  exit
+   97  cd /opt/
+   98  ls -ltr
+   99  cd /usr/
+  100  ls -ltr
+  101  cd /opt/
+  102  ls -ltr
+  103  pwd
+  104  cd
+  105  pwd
+  106  sshlogin
+
+
+
+
+
+
+
+
+
     1  systemctl start httpd
     2  ps -ef | grep httpd
     3  exit
