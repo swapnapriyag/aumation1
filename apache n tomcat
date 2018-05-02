@@ -1,0 +1,222 @@
+35.154.131.74  -- apche1
+52.66.100.26   -- apche2 (tomacat)
+
+1.. install the java
+2. yum install java
+3. yum install httpd
+4.check the weather apache install or not 
+cd /etc/httpd/
+
+   start the apache 
+   systemctl start httpd 
+   
+   ps -ef|grep httpd  --> check the apche services is running or not 
+
+5. we need to install tomacat
+   prequiremnets:--
+   
+    1.Jdk (oracle jdk) we need to download the jdk s/w form oracle (accept license)right click and copy the link and use by the wget command.
+	 wget http://download.oracle.com/otn-pub/java/jdk/10+46/76eac37278c24557a3c4199677f19b62/jdk-10_linux-x64_bin.rpm
+	2. Download the tomact s/w from tomact web site.just click on the 64 bit on zip not on the package types like sha1 etc...
+	   Deploy the /opt
+	   wget is only for download not for installation.
+	   
+	 wget http://redrockdigimark.com/apachemirror/tomcat/tomcat-8/v8.5.30/bin/apache-tomcat-8.5.30-windows-x64.zip
+	  wget and unzip is not installed on lunix 
+      yum install wget
+	  yum install unzip 
+	  where you have done the unzip there only the s/w will install and if it is installed at tmp it wont displays os stores
+	  
+
+	
+	
+	3. Download the application from google
+	   (shoppingcart.war) search for google
+	   http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/10g/r3/cluster/session_state/files/shoppingcart.zip
+	   use above link and download the s/w on /tmp/app/ 
+      
+       wget http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/10g/r3/cluster/session_state/files/shoppingcart.zip
+	   
+	4. once download the application and copy to tomacat path
+	   Application deployment on webapps
+	   cp appication.war /opt/apache-tomcat-9.0.6/webapps/
+	   
+	5. start the tomat appication with script.
+	
+	
+
+	
+[root@ip-172-31-28-239 apache-tomcat-9.0.6]# ls -ltr
+total 100
+drwxr-xr-x. 2 root root    30 Mar  5 09:35 temp
+-rw-r--r--. 1 root root 16722 Mar  5 09:35 RUNNING.txt
+-rw-r--r--. 1 root root  7024 Mar  5 09:35 RELEASE-NOTES
+-rw-r--r--. 1 root root  1859 Mar  5 09:35 NOTICE
+-rw-r--r--. 1 root root 58153 Mar  5 09:35 LICENSE
+drwxr-xr-x. 2 root root  4096 Mar  5 09:35 lib
+drwx------. 2 root root  4096 Mar  5 09:35 bin
+drwxr-xr-x. 3 root root   254 Apr  1 16:27 conf
+drwxr-xr-x. 2 root root   197 Apr  1 16:27 logs
+drwxr-xr-x. 3 root root    22 Apr  1 16:27 work
+drwxr-xr-x. 8 root root   125 Apr  1 16:36 webapps
+[root@ip-172-31-28-239 apache-tomcat-9.0.6]#
+
+
+    6. we have modify the bin permission 
+	
+	 chmod -R 700 bin
+	 
+	7.cd /bin
+	
+	./startup.sh  -- to start the tomacat application with script
+     
+	 ps -ef|grep tomcat 
+
+    8. check the website with public ip and port no with application name 
+
+     Ex: http://35.154.131.74:8080/shoppingcart/
+
+	 
+         	
+   
+	   
+	
+	
+	
+	
+	
+	
+	
+	
+	
+[root@ip-172-31-28-239 httpd]# cd /tmp
+[root@ip-172-31-28-239 tmp]# mkdir tomcat
+[root@ip-172-31-28-239 tmp]# ls -ltr
+total 0
+drwx------. 3 root root 17 Apr  1 14:55 systemd-private-b97f148ee6e54c179242a59960630ec4-chronyd.service-WyCv12
+drwxr-xr-x. 2 root root 18 Apr  1 15:12 hsperfdata_root
+drwx------. 3 root root 17 Apr  1 15:20 systemd-private-b97f148ee6e54c179242a59960630ec4-httpd.service-vcxEGs
+drwxr-xr-x. 2 root root  6 Apr  1 15:27 tomcat
+[root@ip-172-31-28-239 tmp]# cd tomcat
+[root@ip-172-31-28-239 tomcat]# wget http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/10g/r3/cluster/session_state/files/shoppingcart.zip
+-bash: wget: command not found
+[root@ip-172-31-28-239 tomcat]# wget http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/10g/r3/cluster/session_state/files/shoppingcart.zip
+-bash: wget: command not found
+[root@ip-172-31-28-239 tomcat]# wget http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/10g/r3/cluster/session_state/files/shoppingcart.zip
+-bash: wget: command not found
+[root@ip-172-31-28-239 tomcat]# yum install bash
+Loaded plugins: amazon-id, rhui-lb, search-disabled-repos
+Package bash-4.2.46-29.el7_4.x86_64 already installed and latest version
+Nothing to do
+[root@ip-172-31-28-239 tomcat]# yum install wget
+Loaded plugins: amazon-id, rhui-lb, search-disabled-repos
+Resolving Dependencies
+--> Running transaction check
+---> Package wget.x86_64 0:1.14-15.el7_4.1 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================================================================================================================================
+ Package                             Arch                                  Version                                        Repository                                                       Size
+================================================================================================================================================================================================
+Installing:
+ wget                                x86_64                                1.14-15.el7_4.1                                rhui-REGION-rhel-server-releases                                547 k
+
+Transaction Summary
+================================================================================================================================================================================================
+Install  1 Package
+
+Total download size: 547 k
+Installed size: 2.0 M
+Is this ok [y/d/N]: y
+Downloading packages:
+wget-1.14-15.el7_4.1.x86_64.rpm                                                                                                                                          | 547 kB  00:00:00
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : wget-1.14-15.el7_4.1.x86_64                                                                                                                                                  1/1
+  Verifying  : wget-1.14-15.el7_4.1.x86_64                                                                                                                                                  1/1
+
+Installed:
+  wget.x86_64 0:1.14-15.el7_4.1
+
+Complete!
+[root@ip-172-31-28-239 tomcat]# wget http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/10g/r3/cluster/session_state/files/shoppingcart.zip
+--2018-04-01 15:31:13--  http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/10g/r3/cluster/session_state/files/shoppingcart.zip
+Resolving www.oracle.com (www.oracle.com)... 104.122.88.149, 2600:140f:4:198::366, 2600:140f:4:19a::366
+Connecting to www.oracle.com (www.oracle.com)|104.122.88.149|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 34027 (33K) [Application/zip]
+Saving to: ‘shoppingcart.zip’
+
+100%[======================================================================================================================================================>] 34,027      --.-K/s   in 0.001s
+
+2018-04-01 15:31:15 (25.5 MB/s) - ‘shoppingcart.zip’ saved [34027/34027]
+
+[root@ip-172-31-28-239 tomcat]#
+[root@ip-172-31-28-239 tomcat]# ls -ltr
+total 36
+-rw-r--r--. 1 root root 34027 Apr  1 15:31 shoppingcart.zip
+[root@ip-172-31-28-239 tomcat]# wget http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/10g/r3/cluster/session_state/files/shoppingcart.zip
+--2018-04-01 15:37:56--  http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/10g/r3/cluster/session_state/files/shoppingcart.zip
+Resolving www.oracle.com (www.oracle.com)... 104.122.88.149, 2600:140f:4:198::366, 2600:140f:4:19a::366
+Connecting to www.oracle.com (www.oracle.com)|104.122.88.149|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 34027 (33K) [Application/zip]
+Saving to: ‘shoppingcart.zip.1’
+
+100%[======================================================================================================================================================>] 34,027      --.-K/s   in 0.001s
+
+2018-04-01 15:37:57 (22.8 MB/s) - ‘shoppingcart.zip.1’ saved [34027/34027]
+
+[root@ip-172-31-28-239 tomcat]# unzip shoppingcart.zip
+-bash: unzip: command not found
+[root@ip-172-31-28-239 tomcat]# yum install unzip
+Loaded plugins: amazon-id, rhui-lb, search-disabled-repos
+Resolving Dependencies
+--> Running transaction check
+---> Package unzip.x86_64 0:6.0-16.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================================================================================================================================
+ Package                               Arch                                   Version                                    Repository                                                        Size
+================================================================================================================================================================================================
+Installing:
+ unzip                                 x86_64                                 6.0-16.el7                                 rhui-REGION-rhel-server-releases                                 169 k
+
+Transaction Summary
+================================================================================================================================================================================================
+Install  1 Package
+
+Total download size: 169 k
+Installed size: 365 k
+Is this ok [y/d/N]: y
+Downloading packages:
+unzip-6.0-16.el7.x86_64.rpm                                                                                                                                              | 169 kB  00:00:00
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : unzip-6.0-16.el7.x86_64                                                                                                                                                      1/1
+  Verifying  : unzip-6.0-16.el7.x86_64                                                                                                                                                      1/1
+
+Installed:
+  unzip.x86_64 0:6.0-16.el7
+
+Complete!
+[root@ip-172-31-28-239 tomcat]# unzip shoppingcart.zip
+Archive:  shoppingcart.zip
+  inflating: shoppingcart.war
+[root@ip-172-31-28-239 tomcat]# ls -ltr
+total 112
+-rw-r--r--. 1 root root 37110 Sep 19  2008 shoppingcart.war
+-rw-r--r--. 1 root root 34027 Apr  1 15:31 shoppingcart.zip
+-rw-r--r--. 1 root root 34027 Apr  1 15:37 shoppingcart.zip.1
+[root@ip-172-31-28-239 tomcat]#
+
+
+	
