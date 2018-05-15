@@ -92,6 +92,9 @@ installation of tomcat
 uname -a
 yum install zip unzip telnet wget -y
 sleep 5
+cd /opt
+yum install java
+cd -
 mkdir -p /opt/tomcat
 mkdir -p /tmp/tomcatpackage
 cd /tmp/tomcatpackage
