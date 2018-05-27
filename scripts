@@ -149,6 +149,7 @@ ansible installation by enabling the epel(download rpm package and do rpm -ivh p
 	wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
         rpm -ivh epel-release-latest-7.noarch.rpm          
 	cd /root
+	yum install wget -y
 	mkdir ansible
 	cd ansible
 	rm -r * .rpm
