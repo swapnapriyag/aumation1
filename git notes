@@ -5,17 +5,21 @@ yum install git   -- to install the git
 git version
 which git----------to know the installed location
 first we need to create one repository at gui in github(remote)
-git init centralrepo    --- create a local repo name and same of remote repo
-cd centralrepo/
+git init brachname    --- create a local repo name and same of remote repo
+cd branchname
+create a file in that branch only
 vi index.html
 vi index1.html
+execute all git commands in this directory only.
 git add index.html            -- adding to workspace
 git status
 git commit -m "index.html"   -- adding to staging area
 git config --global user.mail "ramumca05@gmail.com"      -- given the connectivity to remote repo
 git config --global user.name "swapnapriyag"
-git remote add origin https://github.com/swapnapriyag/centralrepo.git  -- to add on remote repo       
+git remote add origin https://github.com/swapnapriyag/branchname.git  -- to add on remote repo       
 git push -u origin master     -- to push from local repo to remote repo
+git pull giturl
+git clone giturl
 git --list
 git config --list   
 git add index1.html         
