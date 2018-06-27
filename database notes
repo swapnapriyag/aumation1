@@ -1,0 +1,56 @@
+for install php-----yum install php *
+
+
+to connect to the db(inside)
+============================
+mysql -h <endpoint>/ip/hostname -u <user> -p checkdb
+
+
+when we are inserting data directly into the db called as master data
+
+how to use the sql work bench?
+=================================
+the forwader engineer connects to the db/server
+we can create the schemas---may be like dbs
+
+3 modules we have
+ 
+1.open connection model:
+                       the customer information will be in tables like address table-----------city table---------country-------customer----- like that 
+those are interlinked to each other.
+those are in
+2.EER model:
+           in diagrametics,color tables with internal connections representation
+3.server administration model:
+                             monitoring and configuring the server and metrics in the server,and we start and stop from the work bench
+							 we can configure the users roles from this serverhere we can see the logs of the server
+							 finally we can export and import directly from work bench (to the paths also a single file can export and specific table 
+							 also we can export)
+							 
+							 
+							 
+					
+
+show process list:
+==================
+show status
+
+
+
+checking the privileges to db for the specific user:
+=====================================================
+FLUSH PRIVILIGES
+
+
+
+
+creation of table:
+==================
+create table EMPLOYEE;
+
+
+operations:
+=============
+insert name,empid,sal,address,country into EMPLOYEE;
+delete
+update
