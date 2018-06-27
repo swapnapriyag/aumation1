@@ -1,0 +1,497 @@
+protocols
+==============================================
+ftp-21
+sftp-22
+ssh-22
+telnet-23
+
+
+
+dns-53
+httpd-80
+tomcat---8080
+windows---3389(rdp)
+oracle---1521
+mssql---1433
+db2-50000
+rds-             no os
+mysql---3306
+ajp---3309
+
+
+
+
+
+
+s/w present used versions                                   latest versions
+==============================                              =================================
+apache-----2.4
+tomcat-----8,java---8.5
+jenkins----2.x,
+git ----1.x
+pip--8.x
+splunk-----
+maven----3.3
+appd-----
+ansible---
+chef------
+docker----
+k8--------
+openshift------
+
+
+
+
+
+status codes:
+===============================
+200--------success
+300--------redirection               302------lb
+400--------nothing has the...        403------forbidden error(2 service on 1 port),      404-------file not found     
+500-------internal server error(for o/p contineously refresh the image until get the webpage)      503---------memory leakage
+
+
+uname -a------------to see os and bit
+arch----------------bit(32/64)
+
+
+
+changing host name
+==============================================
+---------vi /etc/hosts
+remove previous ip n name
+add running instance pvt ip   hostname
+---------vi /etc/hostname
+add hostname
+---------hostname -F /etc/hostname
+
+
+
+
+user creation and giving passwordless setup
+================================================
+at root level
+-----------useradd swapna-----(passwd swapna,id swapna,passwd,enter pswa:123,retype pswd:123,/etc/passwd--user info,/etc/shadow:passwd info,/etc/group:group info)
+----------vi /etc/ssh/sshd_config
+line 65 at passwordlessauthentication no
+----------replace as yes 
+and restart sshd service
+----------service sshd restart
+giving root permissions to the user swapna
+-----------vi /etc/sudoers
+end of the file add swapna user like ec2-user and save
+
+
+
+
+installing apache at swapna
+===================================================
+-----yum install httpd -y -----(wget/curl rpm package url,rpm -ivh package.rpm,)(extract only zip,tar files)
+------rpm -qa httpd-------for any package we can check by this rpm -qa package name and version also
+------find / -name httpd
+important con file------/etc/httpd/conf/httpd.conf
+log file-------/etc/httpd/var/errorlog,access log
+        -------/var/logs/httpd/
+ system errors------------/var/log/secure
+all errors-----------/var/log/messages 
+
+
+cd /var/www/html/index.html-------create the file in this path with any sample content or any sample website template
+
+checking the website eith public ip only:
+on or before check at local ::::     localhost:/
+
+
+
+intigration:
+===============
+<VirtualHost *:80>
+
+ProxyRequests off
+ProxyPreserveHost On
+RedirectMatch ^/$ /jenkins
+ProxyPass /jenkins http://localhost:8080/jenkins
+ProxyPassReverse /jenkins http://localhost:8080/jenkins
+
+</VirtualHost>
+
+
+
+
+
+
+
+apache directory structure
+====================================================
+1.bin--start n stop operations,
+2.conf--------conf directory at windows
+               extra
+			   original
+               mine.types
+			   magic
+			   char set
+			   magic
+			   httpd.conf
+-----conf file(server root,document root,directory index,accesslog,error log,directory)
+========================================================================================
+3.htdocs-------document root(our website related files serving location)
+4.error--------error log and access log
+5.log----debug
+         info
+		 notice
+		 crit
+		 alet
+		 emerge
+		 warn
+		 error
+		 crit
+	log format-----------------    %u-- hyphen(-)
+	                               %h--hostname or ip address
+								   %l--hyphen(-)
+								   %t--time
+								   %r--request
+								   %s--statucode
+								   %b--bits of memory
+
+								   
+								   
+								   
+-------------default file permission-----644
+-------------         directory permission---755
+
+
+
+creation of file:
+==================
+touch filename
+vi filename
+cat >filename
+echo "content" >filename
+
+chmod 700 file/directory
+chown -R user:group filename/directory
+
+
+
+when we wre moving the file first we need take backup then move
+server to server copy file
+=============================
+scp filename userid@destination server:/path
+
+
+soft link:
+====================
+it has diff inodes
+ls -l cmd shows all links wt second colum value and this link points to original file
+remove the soft link does not effect the anything
+bt when the original file is removed the link become as a dangling link that points none existent file
+soft link can link to a directory
+
+
+hard link:
+=====================
+have same i nones numbers
+ls -l cmd shows the link no.of links
+links hav actual file content
+removing any link just it reduces the count doesn't affect the other links
+you can't create a hard link to the directoeis
+	if the original file is removed still it shows the the content of the file 
+	
+	
+	
+httpd internal files and directories               to find the file/directory ---------   find / -name filename
+=====================================
+cd /etc/httpd
+             :  conf
+                conf.d
+                conf.modules.d
+                logs -> ../../var/log/httpd
+                modules -> ../../usr/lib64/httpd/modules
+                run -> /run/httpd
+
+	
+	
+	
+to check the services in windows:
+======================================
+run------>services.msc----------all services are here-----------we can start/stop/restart here
+to check the services at linux:
+======================================
+ps -ef / grep  
+
+
+
+
+	
+flow of apache?
+========================
+end user request will come to port----------- 80-----------apache-------httpd.conf-------document root---------/var/www/html------directory index----
+index.html------errorlog,accesslog.
+
+
+
+what is the proxy/reverse proxy:
+=========================
+it is a intermediate server
+who passs the request and who takess the request and pass the request to backend components and take the response from backend componenets and give 
+it to back.
+it's 2 types
+1.forward proxy:restricts the access in the organisation,
+                in this we set the allow and deny rules(accessing the websites)eg:we say as well as apache,like web servers
+2.reverse proxy:eg:aache,nginx,etc.,.
+
+
+
+
+putty is what type of client------ssh client,           browser-----http client
+lb uses----round robbin algorithm       VIP------MEANS VIRTUAL IP----IF THEY SAY VIP THEY ARE TALKING ABOUT LB'S((we'll install SSL certifaces at lb))
+https uses----encrypted algorithm(RSA--algorithm)
+
+
+
+
+
+how DNS works
+=============================
+when we searches the website in browser first it'll search at local and in nearest DNS and then it goes to router and searches for the website name,
+and it'll checks at name server records,and searches at a records and c records,and finally we'll get the website and it'll displays.
+
+we can check how much fast responding of DNS by this command
+dig website name 
+
+
+
+
+
+
+
+
+
+
+recent issues:
+=================================
+we can enter at admin side but the website is not working because there enduser gateway not working means os has taken reboot temporarly
+eg: a=10                 system reboot            gateways are
+    echo $a              echo $a                  eth 0---------default gate way
+	10                    a                       eth 1, eth 2
+	
+	route cmd will display which gate way we are entering to the machine
+--------route netstat -rn
+
+
+
+how we can tell that website is running in cloud or local
+==========================================================
+nslookup cmd-----------------we can find DNS server also
+
+
+
+
+load balancers
+=========================
+3 types
+
+1.alb(application)                             2.classic/elastic lb                                    3.nlb(n/w)
+we can map multiple applications in alb        it's very cost for multiple websites                     
+we add private ips                           
+low cost
+
+
+
+virtual hosts:
+=======================
+2 types
+1.name based ------1 website and 1 ip
+2.ip based--------1 ip and multiple websites
+
+
+
+mx-records
+=========================
+mail exchange
+
+
+what is the default colum center
+=================================
+awk
+
+tab----is colum seperator
+
+date | aws '{print $1}'
+           '{ptint $c}'
+		   
+		   
+		   
+write a script for one person how much time he has logged in
+==================================================================
+
+
+
+
+what is subnet mask
+======================
+A subnet mask is a number that defines a range of IP addresses that can be used in a network.
+ A common subnet mask for a Class C IP address is 255.255.255.0.
+
+ 
+ identify the IPV4
+ ======================
+
+
+
+i want to track all client ip's wher ever using
+=================================================
+x forward
+
+
+with out using edit you want to create a file?
+===================================================
+echo "hi" >file name
+if you want to ovverride use >>
+
+
+
+
+what are the os bootup commands
+================================================
+fstab------if we attach any volume perminently we need to enter in the fstab otherwise when we reboot the server automatically goes (/etc/fstab)
+fdisk-----total info------fdisk -l---------displays disk files
+
+
+
+lsblk------------list of partitions 3:1 ratio(3-editable:1-non editable)
+
+
+
+
+
+how you'll check the password expired or not?
+=============================================
+chage -l username
+
+
+
+
+difference b/w RDS and EC2
+==============================
+RDS is a service provided by the aws as a db (DB)---3306                       EC2
+no os(no SSH and no RDP)                                                       Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides secure, 
+public accessessibility info                                                   resizable compute capacity in the cloud.
+it's a pass service                                                            EC2's simple web service interface allows you to obtain and configure capacity with
+                                                                               minimal friction.
+
+
+
+
+for EBS(ELASTIC BLOCK STORE) advanced storage location EFS(ELASTIC FILE SYSTEM)
+
+
+
+
+vi editor:       starting esc mandatory before executing the vi cmd
+=================
+shift g-------------end of the file
+shift a----------end of the line
+dd-----------delete line
+x---------delete single chaector
+o------------to go to next line in interview we need say n
+i/insert-----------to insert the data
+wc -l------------word count in the line
+set nu----------for giving the numbering to the line in a file
+:wq!------------save and quit
+:q!-------------forcefully quit
+:%s/search key word/replace key word---------to replace the key word
+:%s/search key word/replace key word/g------------globally
+
+
+
+
+archieve commands:
+=======================================
+tar(table of archeiving):(tar bar)
+===================================
+tar -cvf filename.tar(create verb house)
+tar -xvf filename.tar-------------to extract
+tar -tvf filename.tar-------------with out extract to see the content
+
+
+tar with gzip:
+=======================================
+tar -cvzf filename.tgz/tar.gz
+tar -xvzf filename.tgz/tar
+tar -tvzf filename.tgz/tar
+
+zip:
+================
+zip -r filename.zip
+
+unzip:
+==================
+unzip filename.zip
+
+if we want to see compressed file with key words
+=================================================
+zgrep,zcat
+
+gzip:
+==============
+we are using in file syatem issues
+note:    don't compress current day log file if you want to compress first take backup to another path and there 
+also it'll occupy the space and then there you can compress the file with gzip
+gzip catalina.out.gz
+
+
+
+date---------displays date and time
+time----------displays time
+mkdir------to create a directory
+mkdir -p  /var/www/html/index.html----------if the directories all there ok otherwise it'll creates the new directory.
+cd------goes to root
+cd ~ --------goes to root or dat user home
+cd - --------goes to previous directory
+cd .. --------"       "          "
+cd ../.. ---------goes to previous 2 directories back
+cp -r */path--------all files cp to that path
+mv source file name destination file---------rename and moving the file
+rm -r * -----------all files will be deleted
+>filename----------to nullify a file
+uptime--------server is in up or not
+w-------------how many members are loggedin present
+top-------------"        "            " and we can see the cpu utolization,if we press 1 we can see the no.of cpu's also
+last-----------"            "          "
+ping website name--------
+df -h-----------to see no .of disks/fs
+du -m---------to see the memory usage
+ls -lR--------when we are doing migration it'll checks the same content is there are not 
+ls -ld--------only directories will displays
+ls -ld h*-----------"              "        " and starting with h files
+ls -La--------displays bash rc file(to declare the env variables)             
+ls -la ----------------displays hidden files
+ls -LR----------------list reverse
+.bash rc profile--------we'll declare the variables at globally
+yum remome packagename
+yum list
+yum update
+yum repolist
+
+
+
+systemctl enabl httpd
+systemctl start httpd
+systemctl stop httpd
+ps -ef | grep httpd
+ps -ef | grep ":80"
+
+
+
+
+
+                          
+
+
+
+
+
+
+
+	
