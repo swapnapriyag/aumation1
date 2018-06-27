@@ -1,34 +1,35 @@
 local server to github
 ======================
-yum install git
-                                                    sudo apt-get update
-													sudo apt-get upgrade
-													sudo apt-get install git
-
-git --version
+yum install git   -- to install the git 
+                                                   
+git version
 which git----------to know the installed location
-first we need to create one repository at gui in github
-for cli
- curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
- unzip awscli-bundle.zip
- /usr/local/bin/aws --version
-git init centralrepo
+first we need to create one repository at gui in github(remote)
+git init centralrepo    --- create a local repo name and same of remote repo
 cd centralrepo/
 vi index.html
 vi index1.html
-git add index.html
+git add index.html            -- adding to workspace
 git status
-git commit -m "index.html"
-git config --global user.mail "ramumca05@gmail.com"
+git commit -m "index.html"   -- adding to staging area
+git config --global user.mail "ramumca05@gmail.com"      -- given the connectivity to remote repo
 git config --global user.name "swapnapriyag"
-git remote add origin https://github.com/swapnapriyag/centralrepo.git
-git push -u origin master
+git remote add origin https://github.com/swapnapriyag/centralrepo.git  -- to add on remote repo       
+git push -u origin master     -- to push from local repo to remote repo
 git --list
-git config --list
-git add index1.html
+git config --list   
+git add index1.html         
 git commit -m "index1.html"
 git push -u origin master
 git remote -v----------->to see the git url
+
+git branch                     -- to know the brach
+git checkout -b newbranchname  -- to create the new branch
+git checkout branchname        -- switch the brach
+git history                    -- to know the history of git
+git rebase                     -- set of commits, copies stores at out side of repo
+git stash                      -- what ever uncommitted files those goes to stash
+git revert                     -- to roll back to the previous version
 
 
 remote to local(github to server)
