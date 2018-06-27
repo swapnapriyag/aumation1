@@ -28,4 +28,20 @@ aws cli installing through pip
 
   -->aws --version
  
-  -->aws configure
+go to s3 aws my security credentials
+ 
+ access key and secret key
+ 
+ create key
+  Access Key ID: AKIAI3BWHVK6ZI7QH6EQ
+Secret Access Key: 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
+
+-->aws configure-------to login to the aws cli-------if you update once after that you need not to do this again and again
+
+aws s3 mb s3://swap123456 -------to create a bucket at cli and it'll shows at gui
+
+aws s3 cp f2 s3://swap12345(bucketname)------------to create a file in the swap12345 bucket
+
+aws s3 rb s3://bucketname-----------to remove the bucket
+
+aws s3 sync foldername s3://bucketnamefilename-----------automatically sync to s3
