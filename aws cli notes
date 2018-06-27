@@ -1,0 +1,31 @@
+AwS CLI installed in Linux?
+
+=========================================
+
+prequisites for AWS CLI installation in Linux:-
+
+Pythion
+
+aws cli installing through pip
+
+--->To Install PIP
+
+ --->curl -O https://bootstrap.pypa.io/get-pip.py
+
+ --->python get-pip.py --user
+
+ --->export PATH=~/.local/bin:$PATH
+
+ --->source ~/.bash_profile
+
+ --->pip --version
+
+    pip 8.1.2 from ~/.local/lib/python3.4/site-packages (python 3.4).
+
+--->Installing the AWS CLI with Pip
+
+ --->pip install awscli --upgrade --user
+
+  -->aws --version
+ 
+  -->aws configure
