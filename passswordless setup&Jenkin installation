@@ -19,6 +19,8 @@ how to stepup the userid and password with root access
 6. password less setup with devopsadmin
 
   login as devopsadmin -- sudo su - devopsadmin
+  
+   you login now as a devopsadmin without pem file
 
 7. generate key gen
 
@@ -50,8 +52,9 @@ how to stepup the userid and password with root access
 11. Install the JDK(oracle) from sun oracle and tomcat s/w from tomcat site
   
    wget --no-check-certificate -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u171-b11/512cd62ec5174c3487ac17c61aaa89e8/jdk-8u171-linux-x64.rpm   
-
-  sudo wget http://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.31/bin/apache-tomcat-8.5.31.zip
+   wget --no-cookies --no-check-certificate --header "Cookie:gpw_e24=http%3A%2F%2Fwww.oracle.com%2F;oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.rpm
+  
+   sudo wget http://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.31/bin/apache-tomcat-8.5.31.zip
 
 12. chnage the ownership with devopsadmin and chnage the permission with tomcat folder with 700 permission
    
