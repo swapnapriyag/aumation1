@@ -1,8 +1,7 @@
-[root@ip-172-31-17-64 ~]# cd /etc/
-[root@ip-172-31-17-64 etc]# vi hostname
-[root@ip-172-31-17-64 etc]# vi hosts
-[root@ip-172-31-17-64 etc]# vi hostname
-[root@ip-172-31-17-64 etc]# vi hosts
-[root@ip-172-31-17-64 etc]# hostname -F /etc/hostname
-[root@ip-172-31-17-64 etc]# hostname
+vi /etc/hostname
+apache pvtip
+vi /etc/hosts
+apache 
+hostname -F /etc/hostname 
+hostname
 webserver1
