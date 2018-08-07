@@ -25,8 +25,11 @@ how to stepup the userid and password with root access
 7. generate key gen
 
   ssh-keygen
-
-  enter-enter-enter   ---  After key generation going to below path
+  just enter 3 times with empty
+  enter-enter-enter   ---
+  copy the key to remaining servers
+  ssh-copy-id hostname
+  After key generation going to below path
 
   /home/devopsadmin/.ssh  
   
