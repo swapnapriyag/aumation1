@@ -27,8 +27,7 @@ how to stepup the userid and password with root access
   ssh-keygen
   just enter 3 times with empty
   enter-enter-enter   ---
-  copy the key to remaining servers
-  ssh-copy-id hostname
+  
   After key generation going to below path
 
   /home/devopsadmin/.ssh  
@@ -39,7 +38,9 @@ how to stepup the userid and password with root access
   - rw-r--r--. 1 devopsadmin devopsadmin  401 May  7 12:21 id_rsa.pub
   [devopsadmin@Bastion .ssh]$ 
   
-
+copy the key to remaining servers
+  ssh-copy-id hostname
+  
 8. Now try to login server name without password
 
    ssh apache
