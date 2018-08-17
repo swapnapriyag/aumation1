@@ -34,6 +34,10 @@ git history                    -- to know the history of git
 git rebase                     -- set of commits, copies stores at out side of repo
 git stash                      -- what ever uncommitted files those goes to stash
 git revert                     -- to roll back to the previous version
+git merged                     -- shows merged files
+git nomerged                   -- displays non merged files.
+git log                        -- Show commit logs
+git tag                        -- Create, list, delete or verify a tag object signed with GPG
 
 
 remote to local(github to server)
