@@ -39,8 +39,10 @@ git --no-merged                -- displays non merged files.
 git log                        -- Show commit logs
 git tag                        -- Create, list, delete or verify a tag object signed with GPG
 <feature> branch: $ git add    -- to crate child branch 
-pull                            -- pull means only from remote to local
-clone                            -- clone means everything code changes from local-remote-machine local---and it saves locally.
+pull                           -- pull means only from remote to local
+clone                          -- clone means everything code changes from local-remote-machine local---and it saves locally.
+how to do merge::::::: switch to that branch in gui what ever branches we want to merge and select new pullrequest option and go inside
+                       and select create pull request option and then select mergepullrequest and confirm merge
 
 remote to local(github to server)
 ===================================
