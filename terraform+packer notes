@@ -1,0 +1,297 @@
+terraform:::::::https://github.com/wardviaene/terraform-course---------------
+========================
+download at local means it'll be at downloads,download terraform binary file it is a zip file do unzip((go to download path create one folder &copy the folder of terraform1 and
+extract that zip file and set to env variables(add to path) extract the zip folder,go to address tab doubble click on that and select the path &copy,go to
+ my computer right click on that and go to advanced settings----env var-----select path,  ;paste path,ok,ok,go to gitbash and check terraform otherwise
+(export PATH=$PATH:      )
+
+check the cmd teraform at gitbash downloads.
+otherwise add to the path(means we have to include the current directory to path (
+we are adding current directory to the path-----> ./teraform or echo $"export PATH=\$PATH:$(pwd)" >> ~/.bash_profile
+source ~/.bash_profile
+check the command teraform
+RAMU@RAMU-PC MINGW32 ~/Downloads/terraform1/terraform-course/demo-2 (master)------------path
+
+check git and clone
+git clone wardviaeneurl
+ll
+------demo2-----copy and rename
+create a directory and go inside to the directory
+create a empty file with the terraform.tfwars
+these copied from the instance.tf file.
+AWS_ACCESS_KEY="AKIAJYT7Z2DH73THERCA"
+AWS_SECRET_KEY="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"
+AWS_REGION="eu-west-1"  ------if we need any specific region we need to set at the vars.tf file,otherwise we can go through 
+the default region of the vars.tf and also we need to have the ami in our aws a/c.
+we need to take the backup and remove the .tfstate file.  otherwise when we try to apply automatically it'll take the backup of .tfstate again it'll create the 
+.tfstate and terminates the last build ec2 instance
+remove .terraform also(it contains plugins)
+
+--------------- logrotate.t--------------file lo -------conf file untundi------so we can do log rotation in tomcatbased on size.
+
+
+initialise the terraform----terraform plugins will create here when we delete the .terraform file again we need to do terraform init command 
+terraform init
+terraform plan
+1st time one error will come
+so generate the key
+ssh-keygen -f mykey     ----     --------
+terraform plan
+terraform show----------to check where it is creating
+terraform apply
+
+
+extension and paste the access key and secret key with region.
+one default AMI should be in that region only---not necessary.
+(If we want to generate the access key and secret key also we should follow this way we need to check the access keys 
+and secret keys user permissions at IAM policies,because we are doing all tasks with IAM login only,if IAM has the 
+access permissions like s3,admin,ec2,.....)
+
+to crate a file in cmdprmt(windows)--------notepad filename
+
+generate the key as mykey
+ssh-keygen -f mykey
+
+delete the .tfstates copy as .terraform because it'll terminate the launch instance.
+check at aws console at the specific region what ever we have given the details.
+Access Key ID:
+AKIAIRH6NLVCLUH65UGQ
+Secret Access Key:
+OBdQK1gragsJx91istiPME7BEMUXg7dW6bofL1m2
+
+login to server and check it.
+passwordless setup,ansible installation with 3 nodes and 1 master.
+
+in how many ways to communicate ec2:
+=====================================
+windows servers----------putty,
+linux-----------putty
+ssh client-----------like ssh -i pem user@pub ip
+browser-------select ec2 instance---connect--------give all details of pem and pem path,public ip,username,...........
+
+
+packer::::::
+=============
+go to packer demo------
+first see the content of that install file
+nullify the install_software.sh
+add the tomcat script to that install file and save.
+tfvars no need to packer.
+access key and secretkey update at packer-example-json file.
+create a file .tfvars---------update accesskey and secretkey
+generate key
+ssh-keygen
+here generates the mykey_pub and mykey----------
+internally the packer uses the any key of public and or pvt.
+it'll take the mykey as a pemkey
+and just run the ./build and launch.sh
+we'll get error like 403 so we need to install packer like terraform.
+and extract that and the env variable and close the session and reopen the git bash.
+for linux export PATH=$PATH            ----------------not in windows
+token id not found means we need give the accesskey secret key in the json file.
+creates ami and takes snapshot and creates ec2 and executes the scripts and terminates the instance.
+we can share the ami------select the ami-----ami modify image permission-----------aws ac no,add snap and
+save------it'll shares to other account.by this we can launch the instance with redy made,we are giving the scripts like that.
+
+by this ami we can launch the ec2 machines by using terraform.
+just change the ami no,and region.
+if we get 400 error we need remove the mykey at gui only otherwise when running the key gen give another name.
+login to server and check softwares are installed or not.
+
+
+try for re hot ami:
+====================
+we can check the os of ami with server i.e launch instance-----check there.
+so change at packer example.json------------in that source give redhot os no 
+
+ 349  cd Downloads/
+  350  terraform
+  351  terraform -v
+  352  cd ..
+  353  cd Downloads/
+  354  terraform
+  355  cd ..
+  356  cd Downloads/
+  357  terraform
+  358  cd ..
+  359  cd Downloads/
+  360  terraform
+  361  mkdir terrafor
+  362  mkdir terraform
+  363  cd terraform
+  364  ll
+  365  cd ..
+  366  cd terraform1
+  367  mkdir terraform
+  368  mkdir terraform1
+  369  cd terraform1
+  370  notepad keys.tf
+  371  cd ..
+  372   cd Downloads/
+  373  git version
+  374  ll
+  375  find ./ -name ".tf*"
+  376  git clone https://github.com/wardviaene/terraform-course.git
+  377  ll
+  378  cd terraform
+  379  ll
+  380  cd ..
+  381  cd terraform1
+  382  ll
+  383  git clone
+  384  git clone https://github.com/wardviaene/terraform-course.git
+  385  ll
+  386  cd terraform-course/
+  387  ll
+  388  cd demo-2
+  389  ll
+  390  vi terraform.tfwars
+  391  cat vars.tf
+  392  ll
+  393  cat terraform.tfwars
+  394  terraform init
+  395  terraform apply
+  396  terraform plan
+  397  ls -ltrh
+  398  cat instance.tf
+  399  cat script.sh
+  400  cat provider.tf
+  401  cat vars.tf
+  402  cat terraform.tfwars
+  403  vi terraform.tfvars
+  404  vi terraform.tfvars
+  405  terraform init
+  406  terraform plan
+  407  ll
+  408  rm -rf terraform.tfwars
+  409  ll
+  410  terraform init
+  411  terraform plan
+  412  ll
+  413  cat terraform.tfvars
+  414  vi terraform.tfvars
+  415  cat terraform.tfvars
+  416  terraform init
+  417  terraform plan
+  418  ll
+  419  ssh-keygen -f mykey
+  420  terraform plan
+  421  ls -ltra
+  422  cat instance.tf
+  423  cat provider.tf
+  424  cat vars.tf
+  425  vi terraform.tfvars
+  426  vi terraform.tfvars
+  427  terraform init
+  428  terraform plan
+  429  terraform apply
+  430  terraform init
+  431  terraform plan
+  432  terraform show
+  433  terraform apply
+  434  ls -ltr
+  435  cat vars.tf
+  436  ls -ltra
+  437  rm -rf terraform.tfstate
+  438  ls -ltra
+  439  cat .terraform/
+  440  ls -ltr .terraform/
+  441  rm -rf .terraform/
+  442  ls -ltra
+  443  cd ..
+  444  ls -ltra
+  445  cd packer-demo/
+  446  ll
+  447  cat build-and-launch.sh
+  448  cat packer-example.json
+  449  vi install_software.sh
+  450  cat install_software.sh
+  451  ll
+  452  cd scripts/
+  453  ll
+  454  cp  install_software.sh  install_software.shbackup
+  455  ll
+  456  > install_software.sh
+  457  ll
+  458  cat  install_software.sh
+  459  vi  install_software.sh
+  460  sh install_software.sh
+  461  $
+  462  vi install_software.sh
+  463  cd ..
+  464  ll
+  465  cat vars.tf
+  466  vi packer-example.json
+  467  vi terraform.tfvars
+  468  cat instance.tf
+  469  ls -ltrh
+  470  more key.tf
+  471  cat key.tf
+  472  cat instance.tf
+  473  cat vars.tf
+  474  cat packer-example.json
+  475  ls -ltr
+  476  cat key.tf
+  477  cat vars.tf
+  478  ssh-keygen.exe -f mykey
+  479  ls -ltr
+  480  cp mykey mykey.pem
+  481  ls -ltr
+  482  cat vars.tf
+  483  cat instance
+  484  cat instance.tf
+  485  ./build-and-launch.sh
+  486  packer
+  487  packer
+  488  cd ..
+  489  cd Downloads/
+  490  packer
+  491  ./build-and-launch.sh
+  492  ll
+  493  cd terraform1
+  494  ll
+  495  cd  terraform-course
+  496  ll
+  497  cd packer-demo/
+  498  ll
+  499  ./build-and-launch.sh
+  500  cat  build-and-launch.sh
+  501  cd Downloads/
+  502  cd terraform1
+  503  ll
+  504  cd terraform-course/
+  505  ll
+  506  cd packer-demo/
+  507  ll
+  508  ./build-and-launch.sh*
+  509  cat packer-example.json
+  510  vi packer-example.json
+  511  ./build-and-launch.sh*
+  512  vi packer-example.json
+  513  ./build-and-launch.sh*
+  514  cd ..
+  515  cd demo2
+  516  ll
+  517  cd demo-2/
+  518  ll
+  519  cat terraform.tfvars
+  520  cat vars.tf
+  521  ll
+  522  terraform init
+  523  terraform plan
+  524  terraform show
+  525  terraform apply
+  526  ll
+  527  rm -f  mykey
+  528  ll
+  529  terraform apply
+  530  ssh-keygen -f mykey
+  531  terraform init
+  532  terraform plan
+  533  terraform show
+  534  terraform apply
+  535  ls -ltrh
+  536  date
+  537  terraform apply
+  538  terraform apply
+  539  history
