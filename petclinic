@@ -1,3 +1,146 @@
+#!/bin/bash
+
+# install wget unzip
+yum install wget unzip -y 
+
+# install java 
+cd /opt
+wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm
+
+rpm -ivh jdk-8u131-linux-x64.rpm
+
+#Download tomcat
+wget http://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.32/bin/apache-tomcat-8.5.32-windows-x64.zip
+unzip apache-tomcat-8.5.32-windows-x64.zip
+mv apache-tomcat-8.5.32 /opt/tomcat
+chmod -R 755 /opt/tomcat
+cd /opt/tomcat/bin
+./startup.sh
+ps -ef|grep -i tomcat
+netstat -anlp|grep ":8080"
+
+
+3. Install Mysql Database.
+  install the mysql
+ wget http://dev.mysql.com/get/mysql57-community-release-el7-7.noarch.rpm
+ rpm -ivh mysql57-community-release-el7-7.noarch.rpm
+ yum install mysql-server* -y 
+ 
+ 4.Start the msyql server
+ service mysqld start
+
+takeout the temporary password from vi /var/log/mysqld.log
+
+5.mysql_secure_installation
+provide the temporary password:#*.GEN8krCF5
+new password is :Ace2948@
+
+6.login to mysql database
+mysql -h localhost -u root -p 
+password:Ace2948@
+show databases;
+create database petclinic;
+show databases;
+use petclinic;
+show tables;
+
+7.Go to the tomcat webapps folder and download the petclinic war file.
+wget http://cliqr-appstore.s3.amazonaws.com/petclinic/petclinic.war
+
+8.Access the webpage and getting 404 error
+9.go to tomcat logs and verified the catalina.out and localhost_access_log.txt files for the error
+10.stop the tomtcat
+cd /opt/tomcat/bin
+./shutdown.sh
+11.update the database folders inside the petclinic which located inside tomcat
+cd /webapps
+cd petclinic
+cd WEB-INF
+cd classes
+cd db
+cd mysql
+take the back up of initdb.sql folder
+cp initDB.sql intiDB.sql_backup
+vi initDB.sql
+update the username root and password under GRANT ALL PRIVILEGES ON petclinic.* TO root@localhost IDENTIFIED BY 'Ace2948@'
+wq!
+cd classes
+cd spring
+vi data_access.properties
+delete till jpa.showsql=true
+delete the lines after jpa.database=MYSQL
+Uncomment MYSQL settings and provide password
+Uncomment properties and propery as well
+wq!
+12.start the tomcat
+cd /opt/tomcat/bin
+./startup.sh
+
+13.Access the webpage 
+http://ip:8080/petclinic
+getting 404 error again
+14. tail -500f catalina.out and found class not found excepetiong means mysql related jar file got missed inside the tomcat lib folder
+
+15.download the mysql jar file
+wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-8.0.12.zip
+unzip mysql-connector-java-8.0.12.zip
+cd mysql-connector-java-8.0.12
+copy the jar file into tomcat lib folder
+cp mysql-connector-java-8.0.12.jar /opt/tomcat/lib
+
+16.start the tomcat
+cd /opt/tomcat/bin
+./startup.sh
+
+17.access the webpage
+http://ip:8080/petclinic
+successfully petclinic webpage displayed
+
+18.on wbepage, click on add owners and provide the details and saved
+
+19. Go tot the database
+mysql -h localhost -u root -p
+passowrd is Ace2948@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| petclinic          |
+| sys                |
++--------------------+
+
+mysql> use petclinic;
+Database changed
+mysql> show tables;
++---------------------+
+| Tables_in_petclinic |
++---------------------+
+| owners              |
+| pets                |
+| specialties         |
+| types               |
+| vet_specialties     |
+| vets                |
+| visits              |
++---------------------+
+mysql> select * from owners;
++----+------------+-------------+-----------------------+-------------+------------+
+| id | first_name | last_name   | address               | city        | telephone  |
++----+------------+-------------+-----------------------+-------------+------------+
+|  8 | Maria      | Escobito    | 345 Maple St.         | Madison     | 6085557683 |
+|  9 | David      | Schroeder   | 2749 Blackhawk Trail  | Madison     | 6085559435 |
+| 10 | Carlos     | Estaban     | 2335 Independence La. | Waunakee    | 6085555487 |
+| 11 | jayanthi   | kambhampati | marthahalli           | Banglore    | 9980733663 |
++----+------------+-------------+-----------------------+-------------+------------+
+
+
+                                       (OR)
+
+
+
 petclinic::::::::preee requisit-----tomcat.
 =============
 1)install the mysql
