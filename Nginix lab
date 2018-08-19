@@ -1,24 +1,22 @@
-git  init nginx         -- to create the new repository in git
-   96  ls -ltr
-   97  cd nginx
-   98  ls -ltr
-   99  git status       -- to check the status of git 
-  100  vi index.html    -- Create one file   
-  101  git add index.html  -- to added a file on git repo
-  102  ls -ltr
-  103  git commit -m "added index.html"
-  104  git config --global user.email
-  105  git config --global user.email ramumca05@gmail.com
-  106  git config --global user.name swapnapriyag
-  107  git commit -m "added index.html"          -- to commit the data to remote repo
-  108  git remote add origin    
-  109  git remote add origin https://github.com/swapnapriyag/nginx.git 
-  110  git push -u origin master
-  111  ls -ltr
-  112  more index.html 
-  113  git push -u origin master
-  114  git pull 
-  115  ls -ltr
-  116  more index.html
-  117  history
-[root@ip-172-31-12-51 nginx]# 
+1  mkdir scripts
+    2  cd scripts/
+    3  ls -ltr
+    4  vi server.sh
+    5  sh server.sh
+    6  exit
+    7  exit
+    8  yum install nginx* -y
+    #Enable the EPEL
+    9  yum install –y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+   10  yum install nginx* -y
+   11  cd /etc/nginx/
+   12  pwd
+   13  ls -ltr
+   14  pwd
+   15  vi nginx.conf (listen)
+   #start 
+systemctl start nginx
+#check nginx running or not
+ps -ef | grep -i nginx
+#check 80 is in use or not or listening or not
+ netstat -anlp | grep ":80"
