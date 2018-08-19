@@ -1,3 +1,35 @@
+tomcat+petclinic:::::
+========================
+!/bin/bash
+uname -a
+yum install zip unzip telnet wget -y
+sleep 5
+cd /opt
+wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm
+rpm -ivh jdk-8u131-linux-x64.rpm
+cd -
+mkdir -p /opt/tomcat
+mkdir -p /tmp/tomcatpackage
+cd /tmp/tomcatpackage
+wget http://redrockdigimark.com/apachemirror/tomcat/tomcat-8/v8.5.30/bin/apache-tomcat-8.5.30-windows-x64.zip
+cp -r * /opt/tomcat
+cd /opt/tomcat
+unzip apache-tomcat-8.5.30-windows-x64.zip
+cd /opt/tomcat/apache-tomcat-8.5.30
+chmod 755 bin
+./startup.sh
+ps -ef | grep tomcat
+cd /opt/tomcat/webapps
+wget http://cliqr-appstore.s3.amazonaws.com/petclinic/petclinic.war
+
+
+
+
+
+
+
+
+
 connecting to the servers throug the name
 ========================================
 
