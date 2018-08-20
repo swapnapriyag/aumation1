@@ -1,0 +1,27 @@
+build an ami with packer and share the ami to other aws accounts also.
+run the ami and create the instances(4 instances,1-ansible master,3-nodes) with terraform.
+create 1 instance with tomcat+petclinic war file and create petclinic db and conect to that db.
+create ansible folder at github inside that folder i need to have 
+       ========================
+apache.yml file,
+tomcat.yml,
+nginx.yml.
+
+terraform folder
+===================
+apache.tf file,
+tomcat.tf file,
+nginx.tf file.
+
+packer folder
+==============
+apache json file.
+tomcat,
+nginx.
+
+
+
+
+
+
+
