@@ -47,7 +47,8 @@ spawn mysql -u root -p
 expect \"Enter password: \"
 send \"${MYSQL_PWD}\r\"
 expect \"mysql>\"
-send \"ALTER USER 'root'@'localhost' IDENTIFIED BY 'MySQL!57';\r\"
+#may be err wt !
+send \"ALTER USER 'root'@'localhost' IDENTIFIED BY 'MySQL!';\r\"
 expect \"mysql>\"
 send \"uninstall plugin validate_password;\r\"
 expect \"mysql>\"
