@@ -32,11 +32,18 @@ git checkout -b newbranchname  -- to create the new branch
 git checkout branchname        -- switch the brach
 git history                    -- to know the history of git
 git rebase                     -- set of commits, copies stores at out side of repo
+git rebase branchname          -- current branch is up to date
 git stash                      -- what ever uncommitted files those goes to stash
+git stash list                 -- 
+git stash show                 -- 
+git stash apply                -- i have fixed one bug if i'm ready to go what exactly
 git revert                     -- to roll back to the previous version
 git --merged                   -- shows merged files
 git --no-merged                -- displays non merged files.
 git log                        -- Show commit logs
+git log --one line             -- it'll go back one line
+git log --before               -- according to date it discloses
+git log --author
 git tag                        -- Create, list, delete or verify a tag object signed with GPG
 <feature> branch: $ git add    -- to crate child branch 
 pull                           -- pull means only from remote to local
