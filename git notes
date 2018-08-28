@@ -33,6 +33,7 @@ git checkout branchname        -- switch the brach
 git history                    -- to know the history of git
 git rebase                     -- set of commits, copies stores at out side of repo
 git rebase branchname          -- current branch is up to date
+git reset --head branchname    -- if we done any changes we want to go back 
 git stash                      -- what ever uncommitted files those goes to stash
 git stash list                 -- 
 git stash show                 -- 
@@ -40,16 +41,22 @@ git stash apply                -- i have fixed one bug if i'm ready to go what e
 git revert                     -- to roll back to the previous version
 git --merged                   -- shows merged files
 git --no-merged                -- displays non merged files.
-git log                        -- Show commit logs
-git log --one line             -- it'll go back one line
+git log                        -- Show all commits what we have done.
+git log --oneline             -- it'll go back one line
 git log --before               -- according to date it discloses
 git log --author
+git log --online --decorate --graph --all
 git tag                        -- Create, list, delete or verify a tag object signed with GPG
 <feature> branch: $ git add    -- to crate child branch 
 pull                           -- pull means only from remote to local
 clone                          -- clone means everything code changes from local-remote-machine local---and it saves locally.
 how to do merge::::::: switch to that branch in gui what ever branches we want to merge and select new pullrequest option and go inside
                        and select create pull request option and then select mergepullrequest and confirm merge
+git diff -tree {hash}          -- 
+if we want to connect from cmd line to github generate the ssh-key------take public key-------go to github settings---update ssh management
+launch the command
+ssh -T username your company name.com
+git remote -V                  -- to see the remote conf files(OR)to see the remote information
 
 remote to local(github to server)
 ===================================
