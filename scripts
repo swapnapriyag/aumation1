@@ -242,6 +242,10 @@ ansible installation by enabling the epel(download rpm package and do rpm -ivh p
 	sudo yum install epel-release-latest-7.noarch.rpm
 	
 	
+	yum update
+	yum install python-pip
+	
+	
 	
 	
 	
