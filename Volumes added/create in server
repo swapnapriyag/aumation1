@@ -1,12 +1,14 @@
 1.New volumes creation in AWS
-  Going to volumes and create a new volumes(check the server availability zoing base on the availbility zone we have to creatated the volumes)
+  Go to volumes section and create a new volume(check the server availability zone based on the availbility zone we have to create
+  the volumes)
 2.New volume added to any server(go to ---> actions---->attached -- server
-3.check in to server in attacheched volume 
+3.check in to server in attached volume 
   lsblk  -- find the new disk
-   mkfs.ext4 /dev/xvdf     -- formate the file system new volume
+  fdisk -l --find the available disks
+   mkfs.ext4 /dev/xvdf     -- format the file system new volume or create the new volume
 4 create new directory 
-  Mkdir /devops
-5. vi /etc/fstab  ---- > entry into the new filesystem name (permently added the file system)
+  mkdir /devops
+5. vi /etc/fstab  ---- >permently added in the file system(persistance)
    UUID=50a9826b-3a50-44d0-ad12-28f2056e9927 /                       xfs     defaults        0 0
    /dev/xvdf                                 /devops                 ext4    defaults        0 0
 6. mount the file system
