@@ -1,3 +1,10 @@
+yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+yum update
+yum instal ansbile
+
+
+
+
 Apache
 ---
 - hosts: qal
@@ -19,14 +26,11 @@ Apache
       
       
       
+ 
       
       
       
-      
-      
-      
-      
-      To work above playbook follow below modifications.- lamp_rhel_7.4
+To work above playbook follow below modifications.- lamp_rhel_7.4
 1)update site.yml
 2)update hosts
 3)roles/web/templates/index.php.j2:  
