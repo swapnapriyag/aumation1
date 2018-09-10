@@ -1,0 +1,48 @@
+Apache
+---
+- hosts: qal
+  tasks:
+    - name: 1. install Apache
+      apt: name=httpd state=present
+
+    - name: 2. install PHP module for Apache
+      apt: name=libhttpd-mod-php5 state=present
+
+    - name: 3. start Apache
+      service: name=httpd state=running enabled=yes
+
+    - name: 4. install Hello World PHP script
+      copy: src=index.php dest=/var/www/index.php mode=0664
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      To work above playbook follow below modifications.- lamp_rhel_7.4
+1)update site.yml
+2)update hosts
+3)roles/web/templates/index.php.j2:  
+ Update dbservers with qal
+
+4)Rename under group_vars/dbservers to group_vars/qal
+
+ansible-playbook -i hosts site.yml
+
+
+Take the qal ip and test the url
+(all sg with 80)
+
+You will hav the page with o/p
+
+Hello World! My App deployed via Ansible V6.
+      
+      
+      
