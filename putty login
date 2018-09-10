@@ -1,0 +1,10 @@
+download key pair
+go to puttygen tool
+select load option
+save pvt key(pem file to ppk file)
+go to putty----go to ssh section
+browse pvt key(ppk)
+if you want to change color and size go to appearence----change----14
+colors-------use system color
+go to session section
+give hostname-----------public ip-------------give key name-----------save and open.
