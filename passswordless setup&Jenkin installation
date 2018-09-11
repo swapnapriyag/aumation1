@@ -62,6 +62,7 @@ copy the key to remaining servers
    wget http://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.31/bin/apache-tomcat-8.5.31.zip
 
 12. chnage the ownership with devopsadmin and chnage the permission with tomcat folder with 700 permission
+   chmod -R 700 bin
    
 13 . Download the jenkin war s/w on tomcat webapps folder 
 
