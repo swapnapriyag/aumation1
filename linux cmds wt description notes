@@ -134,5 +134,5 @@ find /path/to/files* -mtime +5 -exec rm {} \;
               The third argument, -exec, allows you to pass in a command such as rm. The {} \; at the end is required to end the 
               command.
 ln s path-----------to create sim link
-export PATH=$PATH:path-----------------at   vi .bashrc
+export PATH=$PATH:path-----------------at   vi .bashrc------------source .bashrc
 
