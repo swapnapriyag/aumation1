@@ -2,5 +2,4 @@ java--------------------wget -c --header "Cookie: oraclelicense=accept-securebac
 tomcat------------------wget http://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.32/bin/apache-tomcat-8.5.32-windows-x64.zip
 jenkins-----------------sudo wget https://updates.jenkins-ci.org/download/war/2.118/jenkins.war
 jenkins(wt some of plugins)https://updates.jenkins-ci.org/download/war/2.129/jenkins.war
-maven-------------------https://archive.apache.org/dist/maven/maven-3/3.1.0/binaries/
-
+maven-------------------https://archive.apache.org/dist/maven/maven-3/3.1.0/binaries/apache-maven-3.1.0-bin.tar.gz
