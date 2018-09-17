@@ -15,8 +15,8 @@ execute all git commands in this directory only.
 git add index.html            -- adding to workspace
 git status
 git commit -m "index.html"   -- adding to staging area
-git config --global user.mail "ramumca05@gmail.com"      -- given the connectivity to remote repo
 git config --global user.name "swapnapriyag"
+git config --global user.email "ramumca05@gmail.com"      -- give remote repo details to for the connectivity.
 git remote add origin https://github.com/swapnapriyag/branchname.git  -- to add on remote repo       
 git push -u origin master     -- to push from local repo to remote repo
 git pull giturl
