@@ -17,7 +17,11 @@ git commit -m "index.html"   -- adding to staging area
 git config --global user.mail "ramumca05@gmail.com"      -- given the connectivity to remote repo
 git config --global user.name "swapnapriyag"
 git remote add origin https://github.com/swapnapriyag/branchname.git  -- to add on remote repo       
+git remote show-----------to see the remote repo all details(branche,tags,--------)
 git push -u origin master     -- to push from local repo to remote repo
+(OR)
+git push -u github developer
+git push <remote> <branch>----------------------------to push to perticular branch in remote repo
 git pull giturl
 git clone giturl
 git --list
