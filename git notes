@@ -5,7 +5,8 @@ yum install git   -- to install the git
 git version
 which git----------to know the installed location
 first we need to create one repository at gui in github(remote)
-git init reponame(dir)    --- create a local repo name and same of remote repo
+git init -------to initialise the empty repository
+mkdir dir name--- create a local repo name and same of remote repo
 cd branchname
 create a file in that branch only
 vi index.html
