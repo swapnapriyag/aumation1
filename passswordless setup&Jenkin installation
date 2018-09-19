@@ -3,7 +3,7 @@ how to stepup the userid and password with root access
 1. craete the userid
    useradd devopsadmin
 2. create the password
-   password devopsadmin
+   passwd devopsadmin
 3. update the devopsadmin detailes with below command,we can add the userid on visudo, it will act as normal user to root user
    visudo or vi/etc/sudoers
    
