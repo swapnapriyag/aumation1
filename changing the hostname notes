@@ -1,7 +1,6 @@
 vi /etc/hostname
-apache
-vi /etc/hosts
 apache pvtip
+vi /etc/hosts
+apache
 hostname -F /etc/hostname 
 hostname
-webserver1
