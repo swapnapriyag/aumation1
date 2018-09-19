@@ -69,6 +69,7 @@ git stash show                 --
 git stash apply                -- i have fixed one bug if i'm ready to go what exactly
 git revert                     -- to roll back to the previous version
 git --merged                   -- shows merged files
+git merg branchname            --merging the branches
 git --no-merged                -- displays non merged files.
 git log                        -- Show all commits what we have done.
 git log --oneline             -- it'll go back one line
@@ -86,6 +87,8 @@ git diff -tree {hash}          --
                   launch the command
 ssh -T username your company name.com
 git remote -V                  -- to see the remote conf files(OR)to see the remote information
+upstream------------when you cloned from the origin
+downstream-----------is any project that integrates your work with the other works.
 
 remote to local(github to server)
 ===================================
