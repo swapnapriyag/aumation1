@@ -13,23 +13,51 @@ vi index.html
 vi index1.html
 execute all git commands in this directory only.
 git add index.html            -- adding to workspace
+git add f1 f2 f3----
+git add .
+git add *
+git add -A
 git status
 git commit -m "index.html"   -- adding to staging area
+git commit -m f1 f2 f3 
+git show commitid-----------------------if we commit 2 or more files at a time those commits will be in 1 commit id to see that
+git reset --soft commitid--------------local repo -----staging area
+git reset --head f1 -----------------staging area ----------work space
+git reset --mixed commitid-----------local repo ---------work space
 git config --global user.name "swapnapriyag"
-git config --global user.email "ramumca05@gmail.com"      -- give remote repo details to for the connectivity.
+git config --global user.email "ramumca05@gmail.com"  -- give remote repo details to for the connectivity.
+git config --list  ------------to check configuration has done properly or not
 git remote add origin https://github.com/swapnapriyag/branchname.git  -- to add on remote repo       
 git push -u origin master     -- to push from local repo to remote repo
+git push
+git push path branch name
+git remote show------------------------------to see the remote branches
 git pull giturl
 git clone giturl
 git --list
-git config --list   
+git log---------------to see list of commits
+git log --oneline
+git log -n----------------------no   eg::::: git log -2-----------------displays latest 2 logs
+git log --oneline -n------------------------git log --oneline -2
+#if i want to check author wise logs
+git log --author=username-------------swapnapriyag
+git log --author=username --oneline -4--------------
+#today logs only(since also)
+git log --since=yy-mm-dd--------------2017-12-18
+git log --untill=yy-mm-dd-------------till date logs
+git show commitid-----------------how many files are commited at single commit
+
+
 git add index1.html         
 git commit -m "index1.html"
+git bisect-------------it'll allows you to affending commit and we can find out a commit
+                        where the code works properly and a commit where it does not.
+                        you don't have to trace the offending commit by handthat git bisect do that for you.
 git push -u origin master
 git remote -v----------->to see the git url
 
 git branch                     -- to know the brach
-git checkout -b newbranchname  -- to create the new branch
+git checkout -b newbranchname  -- to create the new branch and goes inside the branch
 git checkout branchname        -- switch the brach
 git history                    -- to know the history of git
 git rebase                     -- set of commits, copies stores at out side of repo
@@ -54,8 +82,8 @@ clone                          -- clone means everything code changes from local
 how to do merge::::::: switch to that branch in gui what ever branches we want to merge and select new pullrequest option and go inside
                        and select create pull request option and then select mergepullrequest and confirm merge
 git diff -tree {hash}          -- 
-if we want to connect from cmd line to github generate the ssh-key------take public key-------go to github settings---update ssh management
-launch the command
+                  if we want to connect from cmd line to github generate the ssh-key------take public key-------go to github settings---update ssh management
+                  launch the command
 ssh -T username your company name.com
 git remote -V                  -- to see the remote conf files(OR)to see the remote information
 
