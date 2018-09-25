@@ -1,6 +1,6 @@
 vi /etc/hostname
-apache pvtip
-vi /etc/hosts
 apache
+vi /etc/hosts
+apache pvtip
 hostname -F /etc/hostname 
 hostname
