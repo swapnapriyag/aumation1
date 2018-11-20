@@ -8,3 +8,5 @@ if you want to change color and size go to appearence----change----14
 colors-------use system color
 go to session section
 give hostname-----------public ip-------------give key name-----------save and open.
+ec2-user
+from gitbash ssh -i pem ec2-user@hostname
