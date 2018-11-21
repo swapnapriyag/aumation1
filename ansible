@@ -1,3 +1,66 @@
+#!/bin/bash
+	cd /tmp
+	mkdir ansiblepackage
+	cd ansiblepackage
+	echo "enabling the epel and downloading the rpm pack of ansible"
+	rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+	cd /root
+	mkdir ansible
+	cd ansible
+	rm -r * .rpm
+	ll
+	echo "installing the ansible"
+	yum install ansible -y
+	echo "installed ansible"
+	ansible --version
+
+
+
+
+Lab- Enabling EPEL
+install the ansible
+
+322  curl http://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-7-11.noarch.rpm -O
+  323  ls -ltr
+  324  rpm -ivh epel-release-7-11.noarch.rpm 
+  325  ls -ltr
+  326  rm -f *.rpm
+  327  ls -ltr
+  328  vi epel.repo 
+  329  yum update 
+  330  yum install ansible -y
+  331  history
+  =========================
+  
+  
+  /root/scripts/jenkins/jobs/demos/config.xml
+  
+  /usr/jenkins/jobs/demos/config.xml
+  
+  
+  find / -name -type config.xml -exec 
+  
+  find with copy ?
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Syllabus
 	Ansible 
 	Installation
