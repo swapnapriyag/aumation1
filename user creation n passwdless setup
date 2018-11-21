@@ -1,0 +1,12 @@
+user creation and giving passwordless setup
+================================================
+at root level
+-----------useradd swapna-----(passwd swapna,id swapna,passwd,enter pswa:123,retype pswd:123,/etc/passwd--user info,/etc/shadow:passwd info,/etc/group:group info)
+----------vi /etc/ssh/sshd_config
+line 65 at passwordlessauthentication no
+----------replace as yes 
+and restart sshd service
+----------service sshd restart
+giving root permissions to the user swapna
+-----------vi /etc/sudoers
+end of the file add swapna user like ec2-user and save
