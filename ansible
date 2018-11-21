@@ -26,6 +26,32 @@ Apache
       
       
       
+   [root@controller playbooks]# pwd
+/root/playbooks
+[root@controller playbooks]# cat httpd.yaml
+---
+- name: This sets up an httpd webserver
+  hosts: ansibleclient01.local
+  tasks:
+  - name: Install the httpd rpm
+    yum: name=httpd
+  - name: start the httpd service
+    service: name=httpd state=started
+  - name: Open port 80
+    firewalld: service=http permanent=true state=enabled
+  - name: start the firewalld service
+    service: name=firewalld state=restarted
+	
+	
+	
+	Run the play book
+	
+[root@controller playbooks]# pwd
+/root/playbooks
+[root@controller playbooks]# ls
+httpd.yaml
+$ ansible-playbook httpd.yml
+      
  
       
       
