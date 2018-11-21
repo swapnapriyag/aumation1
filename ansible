@@ -1,3 +1,97 @@
+Syllabus
+	Ansible 
+	Installation
+	Commands
+	Basic Commands
+	Modules(Adhoc)
+	Inventory& Dynamic
+	Playbook
+
+		
+	
+Ansible is an IT automation tool and it can configure systems, deploy software, and orchestrate more advanced IT tasks such as continuous deployments or zero downtime rolling updates.
+Ansible manages machines in an agentless manner. Ansible uses OpenSSH for transport and it is decentralized, that means it relies on your existing OS credentials to control access to remote machines; if needed it can easily connect with
+Kerberos, LDAP, and other centralized authentication management systems.How to Install and Configuration of Ansible IT Automation Tool on Linux.
+
+Feature and Benefits of Ansible
+	Cross platform support – can support any *NIX, Windows machines, network devices etc.
+	Agentless Architecture, and minimal setup on Master node. so no work for system admins to manage the agent’s on the client side
+	Written in Python.
+	Ansible uses OpenSSH for *NIX systems and WinRM for communication with MS Windows machines.
+	Open source and activity maintained on the GitHub.
+	Very easy install and configure.
+	Highly scalable – Can manage Thousands of nodes
+	Secure as it used SSH for the communication.
+	Easy to understand and remember the command syntax. (No coding skills needed). Ansible uses simple declarative language YAML
+Ansible is not just automation engine, but it is also used for:
+	Configuration Management.
+	Application Deployment.
+	Orchestrations
+	Security and Compliance
+	Rolling Upgrades – Continue Deployment (CD)
+	Provisioning (AWS, Virtual Platform, OpenStack etc…)
+Key Components of Ansible
+	Ansible Modules.
+	Inventory.
+	Tasks.
+	Variables.
+	Playbooks
+Further to the playbooks, Ansible roles can be configured for the more systematic management of the Ansible playbooks.
+
+Step 1: Ansible Installation on Red Hat / CentOS 7:  You can install Ansible control machine with many different methods. In this guide, I am going to show you Ansible installation using Python-PIPand EPEL Repository
+
+ Ansible Latest available Release installation Via Yum
+RPMs are available from yum for EPEL 6, 7, and currently supported Fedora distributions. Ansible itself can manage earlier operating systems that contain Python 2.4 or higher. Fedora users can install Ansible directly, though if you are using RHEL or CentOS and have not already done so,
+First configure EPEL Repository on Linux, because Ansible packages are available from EPEL. install the epel-release RPM if needed on CentOS, RHEL, or Scientific Linux
+1	[root@ansmaster ~]# yum install epel-release -y
+Now run the below command to install Ansible along with all dependencies.
+1	[root@ansmaster ~]# yum install ansible -y
+
+
+Step 2: Ansible Installation Verification:  Just executes the ansible –version command to check Ansible available status in your Master node. Checking the Ansible Version and Config Info
+1
+2
+3
+4
+5
+6	[root@ansmaster ~]# ansible --version
+ansible 2.3.0.0
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = Default w/o overrides
+  python version = 2.7.5 (default, Nov  6 2016, 00:28:07) [GCC 4.8.5 20150623 (Red Hat 4.8.5-11)]
+[root@ansmaster ~]#
+
+
+Ansible Configurations (default): check the below location for ansible defaults configuration file and inventory file
+	Default Config Directory : /etc/ansible
+	Default Config File : /etc/ansible/ansible.cfg
+	Default Inventory File : /etc/ansible/hosts
+
+Lab:-
+Perform SSH password less setup for all the ansible machines with specific user
+ansible-i/etc/ansible/hosts-mping all
+ansible all-i/etc/ansible/hosts-mcommand-a"uptime"
+ Ansible MODULES
+Ansible provides no. of modules that can be executed directly on remote hosts or through playbooks. Modules (also referred to as “task plugins” or “library plugins”) are the ones that do the actual work in ansible, they are what gets executed in each playbook task.
+Confused ??? Let’s check all available modules on the Ansible server. You can get your Modules list and the module Documentation by running the below commands. List all modules available with that particular Ansible version
+# ansible-doc -l
+Check information of particular module
+# ansible-doc <module>
+
+Manual help
+ansible-doc shell
+
+Inventory : Static and Dynamic
+
+
+
+
+
+
+
+
+
+
 yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 yum update
 yum instal ansbile
