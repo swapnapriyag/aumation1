@@ -1,0 +1,104 @@
+JENKINS:::::2.7
+=======================
+
+java based application                                                                    post build setups
+why we need jenkins?????used for ci &cd                        builds                                              deploy                         
+developer------->git<----------jenkins--------along with some test cases like unit testcase-------->revert back.
+
+STEPS
+========
+download jenkins from repo--------jenkins.io
+place the war file that you get any location of your system
+go to cmd promt where jenkins war file generated
+
+generate the paswd and save it at notepad
+go to browser and hit       localhost:8080-----------------jenkins webpage'll come
+the plugins will installed there we can select the suggested plugins or required plugins or all plugines or none of the plugins,-------just take suggested plugins
+
+
+
+
+
+
+
+SETUP JENKINS ON TOMCAT:::::
+========================================
+WHY SHOULD WE DEPLOY JENKINS IN TOMCAT??????? 
+tomcat is a most common used servlet container----------so we can deploy jenkins in other servlet containers
+you can start almost applications on single server------------"      "
+
+PREREQUISIT::
+================
+tomcat::::8(above 5)
+java 7 or above should be available
+
+1....download tomcat 8---binary zip file(core ---1st one)
+unzip tomcat folder at /opt
+rename that 
+copy/place the jenkins war file from jenkins folder and paste it at /tomcat/webapps folder
+go to tomcat bin directory--------change the permissions for execution
+chmod +x* .sh--------------means executable.
+start tomcat---------------./startup.sh-------------to shutdown tomcat ------------./shutdown.sh
+ps -ef | grep tomcat
+check at browser with localhost:8080
+localhost:8080/jenkins
+username & passwd
+so jenkins is running inside tomcat folder,not running as a standalone jenkins
+here tomcat is running in 8080 and jenkins also run in same port 8080 bydefault so we should give other port no like 9090------------>standalone server can't run the 
+same port.
+
+
+
+
+
+CHANGING THE JENKINS HOME DIRECTORY:::::
+========================================
+when ever we installed the jenkins by default there will be create one folder like .jenkins at user profile.
+it contains all the information about the logs,plugins,configurations and total build information.at jenkins home directory-----------move jenkins to 
+other directory-------------reason for change the home directory is for enough disk space-----because all plugins added and fs need to be spacious. and also common 
+reason is for requirement of project
+
+1...check our current home directory
+      go to MANAGE JENKINS
+	        CONFIGURE SYSTEM
+there we can see the home directory
+
+2.create a new folder which will be new home directory
+3.copy all old directory to new directory
+4.change env variable ------JENKINS_HOME and set to new directory
+export:JENKINS_HOME=/user profilepath/jenkinshome
+5.we have to restart jenkins
+ctrl+c--------and again we can start the jenkins.
+(or)
+at browser------------localhost:8080/restart------
+and logs will come there at logs
+
+
+
+MANAGE JENKINS
+CONFIGURE SYSTEM---------------------there we can see the home dir path------------still it doesn't change.
+because we have set it done for env variables for temporary session so we need save env vars as perminent,so enter at .bash_profiles.
+export:JENKINS_HOME=/user profilepath/jenkinshome    and svae
+go to jenkins.war file and start the jenkins.
+check at browser
+
+
+
+
+JENKINS AT CLI::::::
+====================
+WHY SHOUL I MOVE TO CMD LINE??????????IF I HAVE GUI?
+easier
+faster and more convinent
+memory management
+more efficient when compared to  gui of memory consuming.
+when you are doing contineous integration and build process we have to do from cmd line.
+to start jenkins--------java -jar jenkins.war---macos
+
+MANAGE JENKINS
+CONFIGURE GLOBAL SECURITY
+check enable security-------------apply and save
+goto browser localhost:8080/cli
+download jar file			
+
+ 
