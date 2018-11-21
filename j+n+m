@@ -1,0 +1,141 @@
+
+Jenkins Integration with Nexus Artifactory
+
+
+Context:
+Artifactory is a Binary Repository Manager that functions as a single access point organizing all of your binary resources including proprietary libraries, remote artifacts and other 3rd party resources. This white paper describes how Artifactory addresses the above issues and more, boosting your organization’s productivity by removing much of the overhead connected to the complexity of developing with Java and open source libraries.
+Purpose
+Jenkins and Nexus integration
+Version
+1.0
+Author
+g
+Pre-Req
+Any OS , Jenkins, Maven,git
+
+
+
+
+Download nexus package from internet.
+https://help.sonatype.com/repomanager2
+
+
+
+
+
+
+Select the compatible package according to OS type.
+
+
+
+Extract the package and will have directory structure. Goto inside nexus bin directory and launch the command any one.
+./nexus start or ./nexus console ( linux)
+
+After successful start up of nexus from browser take the url : http://<ip>:8081/nexus/
+You will have nexus console url.
+Nexus default username and password is admin/admin123
+
+Download the maven: http://www-eu.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip
+
+Lets choose Jenkins now.
+
+https://github.com/gangireddydanam/spring3-mvc-maven-xml-hello-world
+
+Choose above project ( in pom.xml I have updated according to my nexus path with localhost and you have to replace with ip of your nexus server and username and password).
+
+In the maven extract path inside conf/settings.xml in <servers> section update the below tags.
+<server>   
+    <id>890423</id>   
+  <username>admin</username>
+  <password>admin123</password>
+</server>
+
+<server>
+  <id>InternalReleases</id>
+  <username>admin</username>
+  <password>admin123</password>
+ </server> 
+
+<server>
+  <id>InternalSnapshots</id>
+  <username>admin</username>
+  <password>admin123</password>
+ </server>
+
+this tags has to be inside <servers> </servers> tags and not be in comment section.
+
+If you update pom.xml and settings.xml you are good with project to nexus configuration.
+
+
+
+Download the plugin from the browser.
+
+https://support.sonatype.com/hc/en-us/articles/227256688-How-do-I-configure-the-Nexus-Jenkins-Plugin
+
+
+
+
+Goto Jenkins , manage plugins section and in advanced
+
+
+chose the download plugin and click on upload. ( it does installation of required plugin for Jenkins and sonar nexus).
+
+Next goto available plugin section of Jenkins and check for nexus install the uploader.
+
+
+
+With this tasks you made required plugin setup at Jenkins.
+
+Next configure settings to use Jenkins nexus.
+
+Follow the screenshots below.
+
+
+
+
+Note: Take your serer id any values and your own ip.
+This server id and setttings.xml id has to be mapped.
+
+
+
+
+
+
+check the test connection and you cannot have any error.
+
+Create a job with example 
+https://github.com/gangireddydanam/spring3-mvc-maven-xml-hello-world
+
+
+
+
+
+
+
+
+
+change the path of mvn according to your environment or if you have aleready added environment variable just provide mvn clean package.
+
+
+
+
+To get above screen.
+in same build step section choose another nexus repository manager publisher.
+Group value and artifactory value I took from pom.xml (dev team provides)
+
+File path is the location of my Jenkins work space , full path of my war file generation location .
+
+Maven artifact.
+After the build or during build you will get this value and copy accordingly you path.
+From this path artifact will be uploaded into artifactory.
+
+Apply and Save , execute the job.
+
+After successful completion of job, goto nexus.
+http://localhost:8081/nexus/content/repositories/releases/com/mkyong/spring3-mvc-maven-xml-hello-world/1.1/
+
+Replace the localhost with your ip address.
+
+
+
+you will have the war file.
