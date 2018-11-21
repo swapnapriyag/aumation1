@@ -170,3 +170,72 @@ Hello World! My App deployed via Ansible V6.
       
       
       
+
+
+
+
+
+Lab- Enabling EPEL
+install the ansible
+
+322  curl http://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-7-11.noarch.rpm -O
+  323  ls -ltr
+  324  rpm -ivh epel-release-7-11.noarch.rpm 
+  325  ls -ltr
+  326  rm -f *.rpm
+  327  ls -ltr
+  328  vi epel.repo 
+  329  yum update 
+  330  yum install ansible -y
+  331  history
+  =========================
+  
+  
+  /root/scripts/jenkins/jobs/demos/config.xml
+  
+  /usr/jenkins/jobs/demos/config.xml
+  
+  
+  find / -name -type config.xml -exec 
+  
+  find with copy ?
+  
+  Lab:yum installation
+  (2 machines)
+  nginx
+  httpd
+  
+  test the pages-->public ip--->
+  default replace with your own index.html
+  
+  =================================================
+  
+#!/bin/bash
+yum install unzip httpd -y
+sleep 3
+mkdir -p /root/apachesite
+cd /root/apachesite
+wget https://github.com/BlackrockDigital/startbootstrap-coming-soon/archive/gh-pages.zip
+unzip gh-pages.zip
+cd startbootstrap-coming-soon-gh-pages
+cp -r * /var/www/html
+systemctl enable httpd
+systemctl start httpd
+=================================================
+
+
+  #!/bin/bash
+yum remove unzip httpd -y
+rm -rf /root/apachesite
+rm -rf /var/www/html
+
+yum install unzip httpd -y
+sleep 3
+mkdir -p /root/apachesite
+cd /root/apachesite
+wget https://github.com/BlackrockDigital/startbootstrap-coming-soon/archive/gh-pages.zip
+unzip gh-pages.zip
+cd startbootstrap-coming-soon-gh-pages
+cp -r * /var/www/html
+systemctl enable httpd
+systemctl start httpd
