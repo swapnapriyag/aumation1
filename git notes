@@ -46,6 +46,7 @@ git log --author=username --oneline -4--------------
 git log --since=yy-mm-dd--------------2017-12-18
 git log --untill=yy-mm-dd-------------till date logs
 git show commitid-----------------how many files are commited at single commit
+git push origin --delete [branch name]	Delete a remote branch
 
 
 git add index1.html         
