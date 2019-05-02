@@ -25,9 +25,10 @@ git reset --soft commitid--------------local repo -----staging area
 git reset --head f1 -----------------staging area ----------work space
 git reset --mixed commitid-----------local repo ---------work space
 git config --global user.name "swapnapriyag"
-git config --global user.email "ramumca05@gmail.com"  -- give remote repo details to for the connectivity.
+git config --global user.email "ramumca05@gmail.com"  --------------- give remote repo details to for the connectivity.
 git config --list  ------------to check configuration has done properly or not
-git remote add origin https://github.com/swapnapriyag/branchname.git  -- to add on remote repo       
+git remote add origin https://github.com/swapnapriyag/branchname.git  -- --------to add on remote repo(If you haven't connected your local repository to a remote server, add the server to be able to push to it)       
+List all currently configured remote repositories ----------------git remote -v
 git push -u origin master     -- to push from local repo to remote repo
 git push
 git push path branch name
