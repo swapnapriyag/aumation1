@@ -1,0 +1,44 @@
+manage jenk---->configure system------->configure sonar server details like environment variables & sonarcube installations(name,server url,service account admin id and password)
+                      maven project configuration details also mention here.
+                       CVS(current versioning system) ------add the path(C:windows\system32\config\systemprofile/.ssh/id_rsa    &   C:windows\system32\config\systemprofile/.ssh/known_hosts)and pvt key passw0rd.
+                       Build monitor
+                       SMTP notification(SMTP Server)
+                       JIRA 
+                       Test result analyser(fail/pass)
+            ----->configure global security---------enable security
+                                                    enable slave--->master access control
+            ----->configure credentials(providers----all available, types -----all available)
+            ----->global tool configuration------>mvn configuration
+                                                    JDK installation is there
+                                                    Git
+                                                    MSbuild
+                                                    msbuild sonarcube runner installation
+                                                    sonarcube runner installation
+                                                    mvn installation
+            ----->Manage plugins--------->installed(build monitor view
+                                                     categorized view
+                                                     cvs plugin
+                                                     discard old build plugin
+                                                     environment dashboard plugin
+                                                     fxcop runner plugin
+                                                     green balls
+                                                     jacoco 
+                                                     MSBuild
+                                                     maven
+                                                     sonarcube
+                                                     MSTest
+                                                     site monitor
+                                                     jira 
+                                                     team foundation server
+                                                     git
+                                                     translation assistance
+                                                     test result analyser
+                                                     upstream downstram plugin
+                                                     blue ocean plugin
+           ------->System information------->ystem properties
+                  environment variable
+                  plugins
+                  thread dumps
+           ------->system logs------->
+                                                     
+                     
