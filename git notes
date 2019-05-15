@@ -6,13 +6,15 @@ we are having some pvt repo in pvt n/w from there we'll download and extract the
 
 git version
 which git----------to know the installed location
-first we need to create one repository at gui in github(remote)
-git init -------to initialise the empty repository
-mkdir dir name--- create a local repo name and same of remote repo
+first we need to create one repository at GUI in github(remote)
+git init -------to initialise the empty repository in local
+mkdir dirname--- create a local repo name and same of remote repo
 cd branchname
 create a file in that branch only
 vi index.html
 vi index1.html
+cat  "content" .>filename
+echo "content" >filename(only one line of content)
 execute all git commands in this directory only.
 git add index.html            -- adding to workspace
 git add f1 f2 f3----
@@ -37,7 +39,8 @@ git push path branch name
 git remote show------------------------------to see the remote branches
 git pull giturl
 git clone giturl
-git --list
+clone=pull+merge
+git --list     ----------------------------all available files in local repo
 git log---------------to see list of commits
 git log --oneline
 git log -n----------------------no   eg::::: git log -2-----------------displays latest 2 logs
