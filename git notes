@@ -1,7 +1,9 @@
 local server to github
 ======================
-yum install git   -- to install the git 
-                                                   
+yum install git   -- to install the git(this is from the internet)
+0r
+we are having some pvt repo in pvt n/w from there we'll download and extract the package.
+
 git version
 which git----------to know the installed location
 first we need to create one repository at gui in github(remote)
