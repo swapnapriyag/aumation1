@@ -89,7 +89,8 @@ pull                           -- pull means only from remote to local
 clone                          -- clone means everything code changes from local-remote-machine local---and it saves locally.
 how to do merge::::::: switch to that branch in gui what ever branches we want to merge and select new pullrequest option and go inside
                        and select create pull request option and then select mergepullrequest and confirm merge
-git diff -tree {hash}          -- 
+git diff -tree {hash}          -- displays in one commit how many files have changed for this perticular commit 
+git show cid                  -- displays the list of files(howmany) in one commit
                   if we want to connect from cmd line to github generate the ssh-key------take public key-------go to github settings---update ssh management
                   launch the command
 ssh -T username your company name.com
