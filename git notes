@@ -22,6 +22,14 @@ git add .
 git add *
 git add -A
 git status
+git diff --staged ------------->This command shows the differences between the files in the staging area and the latest version present.
+git diff 1stbranch 2ndbranch----------------->diff b/w these two branches
+git reset [file] -------------------> This command unstages the file, but it preserves the file contents.
+git reset [commit] --------------->This command undoes all the commits after the specified commit and preserves the changes locally.
+git rm [file]  -------------->This command deletes the file from your working directory and stages the deletion.
+git branch -d [branch name]  ----------------->This command deletes the feature branch.
+git remote add [variable name] [Remote Server Link]  ------------------->This command is used to connect your local repository to the remote server.
+git push –all [variable name]--------------->This command pushes all branches to your remote repository.
 git commit -m "index.html"   -- adding to staging area
 git commit -m f1 f2 f3 
 git show commitid-----------------------if we commit 2 or more files at a time those commits will be in 1 commit id to see that
